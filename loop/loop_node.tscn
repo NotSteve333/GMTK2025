@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2nmmi5w6bmri"]
+[gd_scene load_steps=4 format=3 uid="uid://b2nmmi5w6bmri"]
 
-[ext_resource type="Texture2D" uid="uid://dssgj8jqotsoo" path="res://icon.svg" id="1_j1ys5"]
+[ext_resource type="Script" uid="uid://cx2rkekf6ec2x" path="res://loop_node.gd" id="1_j1ys5"]
+[ext_resource type="Texture2D" uid="uid://dssgj8jqotsoo" path="res://icon.svg" id="2_jqo0l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ha6bl"]
+radius = 25.0
 
 [node name="LoopNode" type="Node2D"]
+script = ExtResource("1_j1ys5")
+
+[node name="NodeArea" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NodeArea"]
+shape = SubResource("CircleShape2D_ha6bl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_j1ys5")
+visible = false
+scale = Vector2(0.19015, 0.19015)
+texture = ExtResource("2_jqo0l")
+
+[connection signal="area_entered" from="NodeArea" to="." method="_on_node_area_area_entered"]

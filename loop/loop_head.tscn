@@ -1,19 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://84kd6vdeptb0"]
+[gd_scene load_steps=3 format=3 uid="uid://84kd6vdeptb0"]
 
 [ext_resource type="Script" uid="uid://dhelihg6wlelf" path="res://loop_head.gd" id="1_v2ywg"]
-[ext_resource type="Texture2D" uid="uid://dssgj8jqotsoo" path="res://icon.svg" id="2_7djqp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7djqp"]
 
 [node name="LoopHead" type="CharacterBody2D"]
 script = ExtResource("1_v2ywg")
+spawn_dist = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7djqp")
 
 [node name="DashTimer" type="Timer" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_7djqp")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

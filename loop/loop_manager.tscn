@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dypp07kk1tkm1"]
+
+[ext_resource type="Script" uid="uid://bxqh18iem8yfs" path="res://loop_manager.gd" id="1_d4w8w"]
+[ext_resource type="PackedScene" uid="uid://84kd6vdeptb0" path="res://loop_head.tscn" id="2_ce5ce"]
+
+[node name="LoopManager" type="Node2D"]
+script = ExtResource("1_d4w8w")
+
+[node name="LoopHead" parent="." instance=ExtResource("2_ce5ce")]
+position = Vector2(-516, 284)
+
+[node name="LoopBorder" type="Line2D" parent="."]
+width = 25.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="LoopInterior" type="Line2D" parent="."]
+width = 18.0
+default_color = Color(0.818289, 0.407522, 0.437057, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="LoopNodes" type="Node" parent="."]
+
+[node name="LoopClose" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LoopClose"]

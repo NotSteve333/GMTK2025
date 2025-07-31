@@ -1,14 +1,15 @@
 extends CharacterBody2D
 class_name LoopHead
 
-@export var base_speed = 500.0
+@export var base_speed = 700.0
 @export var dash_speed = 800.0
+var children: Array
 var direction = Vector2.ZERO
-
+var last_node: Vector2
+var num_nodes: int = 0
+@export var spawn_dist = 100.0
 var is_dash = false
 
-func _ready() -> void:
-	pass
 
 func _process(delta: float) -> void:
 	var y_dir = Input.get_axis("up", "down")
@@ -16,19 +17,15 @@ func _process(delta: float) -> void:
 	direction = Vector2(x_dir, y_dir).normalized()
 	
 	if !is_dash and Input.is_action_pressed("dash"):
-		print("dashaaaa")
 		is_dash = true
 		$DashTimer.start()
 
 func _physics_process(delta: float) -> void:
 	var cur_speed = base_speed + (dash_speed * int(is_dash))
-	print(cur_speed)
 	
-	velocity = velocity.move_toward(direction * cur_speed, base_speed / 50.0)
+	velocity = velocity.move_toward(direction * cur_speed, base_speed / 20.0)
 	
 	move_and_slide()
-	
-
 
 func _on_dash_timer_timeout() -> void:
 	is_dash = false
