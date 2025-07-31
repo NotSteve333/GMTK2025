@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdavh70tdor58"]
 
 [ext_resource type="Script" uid="uid://4rxx0m6fm5p2" path="res://level_manager.gd" id="1_3maf5"]
-[ext_resource type="PackedScene" uid="uid://c0p2odpb2t84s" path="res://worm_creature.tscn" id="3_gpfvb"]
+[ext_resource type="PackedScene" uid="uid://c0p2odpb2t84s" path="res://worm_creature.tscn" id="2_gpfvb"]
 [ext_resource type="PackedScene" uid="uid://dypp07kk1tkm1" path="res://loop_manager.tscn" id="3_k1abw"]
 
 [node name="LevelManager" type="Node2D"]
@@ -9,11 +9,13 @@ script = ExtResource("1_3maf5")
 
 [node name="Creatures" type="Node" parent="."]
 
-[node name="WormCreature" parent="Creatures" instance=ExtResource("3_gpfvb")]
-position = Vector2(201, -96)
-scale = Vector2(0.239999, 0.239999)
+[node name="WormCreature" parent="Creatures" instance=ExtResource("2_gpfvb")]
+position = Vector2(214, -70)
+scale = Vector2(0.31706, 0.31706)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="LoopManager" parent="." instance=ExtResource("3_k1abw")]
 scale = Vector2(0.99613, 1)
+
+[connection signal="caught_creature" from="LoopManager" to="." method="_on_loop_manager_caught_creature"]

@@ -7,6 +7,8 @@ var trail_points: PackedVector2Array = []
 var num_nodes = 0
 var max_nodes = 500
 
+signal caught_creature(creature: Creature)
+
 func _process(delta):
 	var head_pos = $LoopHead.position
 	
@@ -28,4 +30,5 @@ func recieve_intersect(first_id: int, second_id: int) -> void:
 	
 func _on_loop_close_body_entered(body: Node2D) -> void:
 	if body is Creature:
-		print("caught creature")
+		print("caught")
+		caught_creature.emit(body)

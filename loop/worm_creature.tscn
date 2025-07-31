@@ -1,10 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0p2odpb2t84s"]
+[gd_scene load_steps=17 format=3 uid="uid://c0p2odpb2t84s"]
 
 [ext_resource type="Script" uid="uid://cv2jqt0eywkds" path="res://worm_creature.gd" id="1_5wqyr"]
-[ext_resource type="Texture2D" uid="uid://o0n0xhtsfflj" path="res://IMG_0013.PNG" id="2_3q2vs"]
-[ext_resource type="Texture2D" uid="uid://bqetan6kn8l1r" path="res://IMG_0014.PNG" id="3_5wqyr"]
-[ext_resource type="Texture2D" uid="uid://dqrwckw2d125t" path="res://IMG_0015.PNG" id="4_ohclm"]
-[ext_resource type="Texture2D" uid="uid://rriei7fy8i2j" path="res://IMG_0016.PNG" id="5_greij"]
+[ext_resource type="Texture2D" uid="uid://1qu24jaxlyl5" path="res://Worm-2.png" id="3_5ynj8"]
+[ext_resource type="Texture2D" uid="uid://bv8ddprpbtvgy" path="res://Worm-9.png" id="3_unm5n"]
+[ext_resource type="Texture2D" uid="uid://cwufiif3ld0d4" path="res://Worm-8.png" id="4_vw5d2"]
+[ext_resource type="Texture2D" uid="uid://dop3y2lgunlmv" path="res://Worm-7.png" id="5_1rose"]
+[ext_resource type="Texture2D" uid="uid://dllbg8c5v5hpn" path="res://Worm-1.png" id="6_ohclm"]
+[ext_resource type="Texture2D" uid="uid://cwsnkee8men10" path="res://Worm-6.png" id="6_ysb11"]
+[ext_resource type="Texture2D" uid="uid://bvs5y3hqgd8s3" path="res://Worm-5.png" id="7_i3yjm"]
+[ext_resource type="Texture2D" uid="uid://c7rva4t6o7mlk" path="res://Worm-4.png" id="8_iubd0"]
+[ext_resource type="Texture2D" uid="uid://c4i21o4t2ngqx" path="res://Worm-3.png" id="9_e70sn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_31tvp"]
 radius = 123.199
@@ -14,39 +19,30 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Head:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_3q2vs")]
+"values": [ExtResource("3_5ynj8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("ShapeCast2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(235, -175)]
+"values": [2.13803]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RayCast2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.392699]
-}
+
+[sub_resource type="Animation" id="Animation_5wqyr"]
+resource_name = "caught"
 
 [sub_resource type="Animation" id="Animation_3q2vs"]
 resource_name = "rotate"
@@ -55,43 +51,32 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Head:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 1.99),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 1.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_3q2vs"), ExtResource("3_5wqyr"), ExtResource("4_ohclm"), ExtResource("5_greij"), ExtResource("2_3q2vs")]
+"values": [ExtResource("3_5ynj8"), ExtResource("3_unm5n"), ExtResource("4_vw5d2"), ExtResource("5_1rose"), ExtResource("6_ysb11"), ExtResource("7_i3yjm"), ExtResource("8_iubd0"), ExtResource("9_e70sn"), ExtResource("3_5ynj8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("ShapeCast2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 1.99),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.49, 1.5, 1.75, 1.99, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(913, -188), Vector2(235, -175), Vector2(-418, -219), Vector2(-1036, -238), Vector2(919, -200)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RayCast2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.49, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.392699, 1.37532, 3.82925, 5.40005, 6.63225]
+"values": [2.15548, 2.99848, 3.73151, 4.763, -0.588176, 0.111701, 5.40005, 1.00705, 1.56032, 8.35838, 6.63225]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ynj8"]
 _data = {
 &"RESET": SubResource("Animation_3ir1p"),
+&"caught": SubResource("Animation_5wqyr"),
 &"rotate": SubResource("Animation_3q2vs")
 }
 
@@ -111,16 +96,20 @@ libraries = {
 &"": SubResource("AnimationLibrary_5ynj8")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(235, -175)
-texture = ExtResource("2_3q2vs")
-
-[node name="RayCast2D" type="ShapeCast2D" parent="."]
-rotation = 0.392699
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+rotation = 2.13803
 shape = SubResource("CapsuleShape2D_5wqyr")
 target_position = Vector2(1000, 0)
 
 [node name="SusTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(125, 441)
+texture = ExtResource("6_ohclm")
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(124, 443)
+texture = ExtResource("3_5ynj8")
 
 [connection signal="timeout" from="SusTimer" to="." method="_on_sus_timer_timeout"]

@@ -1,5 +1,4 @@
 extends Node2D
-class_name Level
 
 func _ready() -> void:
 	for i in $Creatures.get_children():
@@ -8,3 +7,6 @@ func _ready() -> void:
 
 func game_over() -> void:
 	print("game over")
+
+func _on_loop_manager_caught_creature(creature: Creature) -> void:
+	creature.caught()

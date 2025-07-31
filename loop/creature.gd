@@ -12,3 +12,5 @@ enum State {
 	caught
 }
 	
+func caught() -> void:
+	cur_state = State.caught

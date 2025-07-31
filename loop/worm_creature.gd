@@ -1,15 +1,15 @@
 extends Creature
 
-@onready var vision: ShapeCast2D = $RayCast2D
+@onready var vision: ShapeCast2D = $ShapeCast2D
 
 func _ready() -> void:
 	$AnimationPlayer.current_animation = "rotate"
-	$RayCast2D.collide_with_areas = false
+	vision.collide_with_areas = false
 	
 func check_collisions() -> bool:
 	var collisions = vision.collision_result
-	for i in collisions:
-		if i is LoopHead:
+	for i in range(collisions.size()):
+		if $ShapeCast2D.get_collider(i) is LoopHead:
 			print("hit")
 			return true
 	return false
@@ -25,6 +25,8 @@ func _process(delta: float) -> void:
 			$AnimationPlayer.speed_scale = 0.0
 		State.aware:
 			aware.emit()
+		State.caught:
+			$AnimationPlayer.current_animation = "caught"
 			
 
 func _on_sus_timer_timeout() -> void:
