@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6lmr7s1plerk"]
+[gd_scene load_steps=5 format=3 uid="uid://b6lmr7s1plerk"]
 
+[ext_resource type="Script" uid="uid://ble2beenyh6vl" path="res://creature.gd" id="1_1k0n7"]
 [ext_resource type="Texture2D" uid="uid://dssgj8jqotsoo" path="res://icon.svg" id="1_fd6ru"]
+[ext_resource type="PackedScene" uid="uid://p6yortjc0kv3" path="res://loop_check.tscn" id="2_nugsn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxuua"]
 radius = 63.1269
 
 [node name="Creature" type="CharacterBody2D"]
+script = ExtResource("1_1k0n7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uxuua")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_fd6ru")
+
+[node name="LoopCheck" parent="." instance=ExtResource("2_nugsn")]

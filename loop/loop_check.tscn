@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://p6yortjc0kv3"]
+
+[ext_resource type="Script" uid="uid://dicyjb8rkh84x" path="res://loop_check.gd" id="1_w6kfa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odw7u"]
+
+[node name="LoopCheck" type="ShapeCast2D"]
+shape = SubResource("RectangleShape2D_odw7u")
+script = ExtResource("1_w6kfa")
