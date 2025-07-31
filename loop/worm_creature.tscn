@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0p2odpb2t84s"]
+
+[ext_resource type="Script" uid="uid://cv2jqt0eywkds" path="res://worm_creature.gd" id="1_5wqyr"]
+[ext_resource type="Texture2D" uid="uid://o0n0xhtsfflj" path="res://IMG_0013.PNG" id="2_3q2vs"]
+[ext_resource type="Texture2D" uid="uid://bqetan6kn8l1r" path="res://IMG_0014.PNG" id="3_5wqyr"]
+[ext_resource type="Texture2D" uid="uid://dqrwckw2d125t" path="res://IMG_0015.PNG" id="4_ohclm"]
+[ext_resource type="Texture2D" uid="uid://rriei7fy8i2j" path="res://IMG_0016.PNG" id="5_greij"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31tvp"]
+radius = 123.199
+
+[sub_resource type="Animation" id="Animation_3ir1p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_3q2vs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(235, -175)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RayCast2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.392699]
+}
+
+[sub_resource type="Animation" id="Animation_3q2vs"]
+resource_name = "rotate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 1.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_3q2vs"), ExtResource("3_5wqyr"), ExtResource("4_ohclm"), ExtResource("5_greij"), ExtResource("2_3q2vs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 1.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(913, -188), Vector2(235, -175), Vector2(-418, -219), Vector2(-1036, -238), Vector2(919, -200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RayCast2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.49, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.392699, 1.37532, 3.82925, 5.40005, 6.63225]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ynj8"]
+_data = {
+&"RESET": SubResource("Animation_3ir1p"),
+&"rotate": SubResource("Animation_3q2vs")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wqyr"]
+radius = 61.85
+height = 434.23
+
+[node name="WormCreature" type="CharacterBody2D"]
+script = ExtResource("1_5wqyr")
+metadata/_custom_type_script = "uid://ble2beenyh6vl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_31tvp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5ynj8")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(235, -175)
+texture = ExtResource("2_3q2vs")
+
+[node name="RayCast2D" type="ShapeCast2D" parent="."]
+rotation = 0.392699
+shape = SubResource("CapsuleShape2D_5wqyr")
+target_position = Vector2(1000, 0)
+
+[node name="SusTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SusTimer" to="." method="_on_sus_timer_timeout"]
