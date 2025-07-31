@@ -28,3 +28,5 @@ end_cap_mode = 2
 [node name="LoopClose" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LoopClose"]
+
+[connection signal="body_entered" from="LoopClose" to="." method="_on_loop_close_body_entered"]

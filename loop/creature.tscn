@@ -16,4 +16,4 @@ shape = SubResource("CircleShape2D_uxuua")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_fd6ru")
 
-[node name="LoopCheck" parent="." instance=ExtResource("2_nugsn")]
+[node name="LoopSearch" parent="." instance=ExtResource("2_nugsn")]
