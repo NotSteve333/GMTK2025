@@ -10,7 +10,7 @@ script = ExtResource("1_d4w8w")
 position = Vector2(-516, 284)
 
 [node name="LoopBorder" type="Line2D" parent="."]
-width = 25.0
+width = 6.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -18,7 +18,7 @@ end_cap_mode = 2
 antialiased = true
 
 [node name="LoopInterior" type="Line2D" parent="."]
-width = 18.0
+width = 4.0
 default_color = Color(0.818289, 0.407522, 0.437057, 1)
 joint_mode = 2
 begin_cap_mode = 2

@@ -10,8 +10,8 @@ script = ExtResource("1_3maf5")
 [node name="Creatures" type="Node" parent="."]
 
 [node name="WormCreature" parent="Creatures" instance=ExtResource("2_gpfvb")]
-position = Vector2(214, -70)
-scale = Vector2(0.31706, 0.31706)
+position = Vector2(232, -87)
+scale = Vector2(0.193057, 0.193057)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

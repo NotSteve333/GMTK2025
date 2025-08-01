@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7rva4t6o7mlk"
-path="res://.godot/imported/Worm-4.png-eadec0e05d6e57d4add1f9b28c1dbd65.ctex"
+path="res://.godot/imported/Worm-4.png-520d2ccfce76981c3503efafcae33290.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Worm-4.png"
-dest_files=["res://.godot/imported/Worm-4.png-eadec0e05d6e57d4add1f9b28c1dbd65.ctex"]
+source_file="res://Sprites/Worm/Worm-4.png"
+dest_files=["res://.godot/imported/Worm-4.png-520d2ccfce76981c3503efafcae33290.ctex"]
 
 [params]
 
