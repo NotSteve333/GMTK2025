@@ -3,6 +3,9 @@ class_name Creature
 
 signal aware()
 
+var pull_center: Vector2
+var my_size: float
+
 var cur_state: State = State.unaware
 
 enum State {
@@ -12,5 +15,15 @@ enum State {
 	caught
 }
 	
-func caught() -> void:
+func _physics_process(delta: float) -> void:
+	if cur_state == State.caught:
+		var diff = pull_center - position
+		var diff_m = diff.length()
+		if diff_m < my_size:
+			queue_free()
+		velocity = min(500.0, diff_m) * diff.normalized()
+		move_and_slide()
+
+func caught(center: Vector2) -> void:
 	cur_state = State.caught
+	pull_center = center

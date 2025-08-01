@@ -12,7 +12,7 @@ var active_inter: IntersectData
 var max_nodes = 500
 var delete_threshold = 15.0
 
-signal caught_creature(creature: Creature)
+signal caught_creature(creature: Creature, center: Vector2)
 
 class IntersectData:
 	var finished: bool
@@ -58,11 +58,11 @@ func add_loop_points(pos: Vector2) -> void:
 	$LoopNodes.add_child(new_node)
 	
 func pull_in(inter: IntersectData, delta: float) -> void:
-	if inter.cleanup >= abs(inter.bounds.x - inter.bounds.y) -1:
+	if inter.cleanup >= abs(inter.bounds.x - inter.bounds.y + 1):
 		inter.finished = true
 		head.is_stopped = false
 		return
-	for i in range(inter.bounds.x - 1, inter.bounds.y - inter.cleanup - 2):
+	for i in range(inter.bounds.x - 1, inter.bounds.y - inter.cleanup):
 		var point_diff = inter.center - trail_border.get_point_position(i)
 		var diff_m = point_diff.length()
 		if diff_m < 20.0:
@@ -76,4 +76,4 @@ func pull_in(inter: IntersectData, delta: float) -> void:
 func _on_loop_close_body_entered(body: Node2D) -> void:
 	if body is Creature:
 		print("caught")
-		caught_creature.emit(body)
+		caught_creature.emit(body, active_inter.center)

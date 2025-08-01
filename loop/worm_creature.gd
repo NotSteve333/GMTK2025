@@ -5,6 +5,7 @@ extends Creature
 func _ready() -> void:
 	$AnimationPlayer.current_animation = "rotate"
 	vision.collide_with_areas = false
+	my_size = 50.0
 	
 func check_collisions() -> bool:
 	var collisions = vision.collision_result

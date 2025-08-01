@@ -15,9 +15,6 @@ var mouse_pos: Vector2
 
 
 func _process(delta: float) -> void:
-	#var y_dir = Input.get_axis("up", "down")
-	#var x_dir = Input.get_axis("left", "right")
-	#direction = Vector2(x_dir, y_dir).normalized()
 	if !is_stopped:
 		mouse_pos = get_global_mouse_position()
 		
