@@ -9,6 +9,7 @@ resource_name = "idle"
 [sub_resource type="Animation" id="Animation_xy3r0"]
 resource_name = "scream"
 length = 2.5
+step = 0.0625
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
