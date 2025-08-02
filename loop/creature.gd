@@ -1,11 +1,12 @@
 extends CharacterBody2D
 class_name Creature
 
-signal aware()
+signal aware(my_location: Vector2)
+signal im_caught()
 
 var pull_center: Vector2
 var my_size: float
-
+var creature_id: int
 var cur_state: State = State.unaware
 
 enum State {
@@ -14,12 +15,13 @@ enum State {
 	aware,
 	caught
 }
-	
+
 func _physics_process(delta: float) -> void:
 	if cur_state == State.caught:
 		var diff = pull_center - position
 		var diff_m = diff.length()
 		if diff_m < my_size:
+			im_caught.emit()
 			queue_free()
 		velocity = min(500.0, diff_m) * diff.normalized()
 		move_and_slide()

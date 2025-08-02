@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://cfydcyr3784p"]
+[gd_scene load_steps=2 format=3 uid="uid://cfydcyr3784p"]
+
+[ext_resource type="Script" uid="uid://enbjrmq3d7aa" path="res://obstacle.gd" id="1_sl1jc"]
 
 [node name="Obstacle" type="StaticBody2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+script = ExtResource("1_sl1jc")

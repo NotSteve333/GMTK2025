@@ -12,7 +12,6 @@ var active_inter: IntersectData
 var max_nodes = 500
 var delete_threshold = 15.0
 
-signal caught_creature(creature: Creature, center: Vector2)
 
 class IntersectData:
 	var finished: bool
@@ -76,4 +75,4 @@ func pull_in(inter: IntersectData, delta: float) -> void:
 func _on_loop_close_body_entered(body: Node2D) -> void:
 	if body is Creature:
 		print("caught")
-		caught_creature.emit(body, active_inter.center)
+		body.caught()

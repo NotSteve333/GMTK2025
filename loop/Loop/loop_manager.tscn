@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dypp07kk1tkm1"]
 
-[ext_resource type="Script" uid="uid://bxqh18iem8yfs" path="res://loop_manager.gd" id="1_d4w8w"]
-[ext_resource type="PackedScene" uid="uid://84kd6vdeptb0" path="res://loop_head.tscn" id="2_ce5ce"]
+[ext_resource type="Script" uid="uid://bxqh18iem8yfs" path="res://Loop/loop_manager.gd" id="1_d4w8w"]
+[ext_resource type="PackedScene" uid="uid://84kd6vdeptb0" path="res://Loop/loop_head.tscn" id="2_ce5ce"]
 
 [node name="LoopManager" type="Node2D"]
 script = ExtResource("1_d4w8w")

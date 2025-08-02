@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqro3jyjfnik3"]
+
+[ext_resource type="Script" uid="uid://v7y8fo53su4b" path="res://tree.gd" id="1_087k8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_087k8"]
+radius = 16.0312
+
+[node name="Tree1" type="StaticBody2D"]
+script = ExtResource("1_087k8")
+metadata/_custom_type_script = "uid://enbjrmq3d7aa"
+
+[node name="TreeLayers" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="TreeLayers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_087k8")

@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		State.suspicious:
 			$AnimationPlayer.speed_scale = 0.0
 		State.aware:
-			aware.emit()
+			aware.emit(global_position)
 		State.caught:
 			$AnimationPlayer.current_animation = "caught"
 			

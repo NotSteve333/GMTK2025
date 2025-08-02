@@ -11,3 +11,9 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(direction * speed, speed / 4.0)
 	move_and_slide()
+
+func set_bounds(new_bounds: Vector4) -> void:
+	$Camera2D.limit_left = new_bounds[0]
+	$Camera2D.limit_top = new_bounds[1]
+	$Camera2D.limit_right = new_bounds[2]
+	$Camera2D.limit_bottom = new_bounds[3]
