@@ -8,13 +8,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HFlowContainer" type="HFlowContainer" parent="."]
-layout_mode = 0
-offset_right = 1147.0
-offset_bottom = 645.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.201
+anchor_right = 0.785
+anchor_bottom = 1.0
+offset_left = -231.552
+offset_right = 253.68
+offset_bottom = 5.0
 alignment = 1
 
-[node name="Button" type="Button" parent="HFlowContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
-text = "Play
-"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"

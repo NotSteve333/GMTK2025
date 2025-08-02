@@ -16,6 +16,9 @@ enum State {
 	caught
 }
 
+func make_aware() -> void:
+	cur_state = State.aware
+
 func _physics_process(delta: float) -> void:
 	if cur_state == State.caught:
 		var diff = pull_center - position
