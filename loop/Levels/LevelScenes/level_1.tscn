@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://ck60n4li0d22b"]
 
-[ext_resource type="Script" uid="uid://m2thbtp4o7kp" path="res://Levels/LevelScenes/level_1.gd" id="1_5m15b"]
+[ext_resource type="Script" uid="uid://fywua8qtnfpp" path="res://Levels/level.gd" id="1_xrpjf"]
 [ext_resource type="PackedScene" uid="uid://2qxjlgnkvpv6" path="res://blinker.tscn" id="2_xrpjf"]
 [ext_resource type="PackedScene" uid="uid://dqro3jyjfnik3" path="res://tree_1.tscn" id="3_xrpjf"]
 
 [node name="Level1" type="Node2D"]
-script = ExtResource("1_5m15b")
+script = ExtResource("1_xrpjf")
 cam_bounds = Vector4(-3000, -3000, 3000, 3000)
 spawn_point = Vector2(-2975, 0)
 tail_spawn = Vector2(-3015, 0)

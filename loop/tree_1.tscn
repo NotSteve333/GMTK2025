@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqro3jyjfnik3"]
 
-[ext_resource type="Script" uid="uid://v7y8fo53su4b" path="res://tree.gd" id="1_087k8"]
+[ext_resource type="Script" uid="uid://enbjrmq3d7aa" path="res://obstacle.gd" id="1_yoj8e"]
 [ext_resource type="Texture2D" uid="uid://coo8ocu0112vp" path="res://Sprites/Trees/tree_layer1.png" id="2_ipky0"]
 [ext_resource type="Texture2D" uid="uid://d2g51em5hbngd" path="res://Sprites/Trees/tree_layer2.png" id="4_colx7"]
 [ext_resource type="Texture2D" uid="uid://balrik2rjx38u" path="res://Sprites/Trees/tree_layer5.png" id="5_725ce"]
@@ -12,7 +12,7 @@ radius = 64.195
 
 [node name="Tree1" type="StaticBody2D"]
 z_index = 1
-script = ExtResource("1_087k8")
+script = ExtResource("1_yoj8e")
 metadata/_custom_type_script = "uid://enbjrmq3d7aa"
 
 [node name="TreeLayers" type="Node2D" parent="."]
