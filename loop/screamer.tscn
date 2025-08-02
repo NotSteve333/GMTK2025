@@ -1,7 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjjw11qxsfxlu"]
+[gd_scene load_steps=13 format=3 uid="uid://cjjw11qxsfxlu"]
 
 [ext_resource type="Script" uid="uid://ble2beenyh6vl" path="res://creature.gd" id="1_c5v53"]
 [ext_resource type="Texture2D" uid="uid://dlwngygvt5oyd" path="res://Sprites/Screamer/screamer-1.png" id="2_2p01n"]
+[ext_resource type="Texture2D" uid="uid://cp7knwgxhdmpi" path="res://Sprites/Screamer/screamer-9.png" id="3_is1fi"]
+[ext_resource type="Texture2D" uid="uid://drisrxph3acn0" path="res://Sprites/Screamer/screamer-3.png" id="4_0nvu2"]
+[ext_resource type="Texture2D" uid="uid://bb2ek5ymb5opd" path="res://Sprites/Screamer/screamer-4.png" id="5_wgxun"]
+[ext_resource type="Texture2D" uid="uid://c0ia1yepm752m" path="res://Sprites/Screamer/screamer-5.png" id="6_c6dcq"]
+[ext_resource type="Texture2D" uid="uid://2xes61gqvm3d" path="res://Sprites/Screamer/screamer-7.png" id="7_c4456"]
+[ext_resource type="Texture2D" uid="uid://duy60n5evwxac" path="res://Sprites/Screamer/screamer-8.png" id="8_hcjul"]
 
 [sub_resource type="Animation" id="Animation_56rxa"]
 resource_name = "idle"
@@ -17,10 +23,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.0625, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_2p01n")]
+"values": [ExtResource("2_2p01n"), ExtResource("3_is1fi"), ExtResource("4_0nvu2"), ExtResource("5_wgxun"), ExtResource("6_c6dcq"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul")]
 }
 
 [sub_resource type="Animation" id="Animation_iqqps"]
@@ -58,4 +64,5 @@ libraries = {
 texture = ExtResource("2_2p01n")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-162, 35, 34, 26, 211, 2, 305, 111, 242, 292, 362, 398, 389, 455, 440, 377, 410, 315, 357, 267, 445, 115, 435, -4, 222, -204, 38, -199, -138, -183, -251, -78, -371, 14, -354, 120, -237, 237, -189, 301, -203, 368, -131, 390, -143, 296, -111, 292, -138, 227, -263, 79)
