@@ -23,10 +23,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0625, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.625),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0625, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.625, 0.6875, 0.75, 0.8125, 0.9375, 1, 1.125, 1.1875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_2p01n"), ExtResource("3_is1fi"), ExtResource("4_0nvu2"), ExtResource("5_wgxun"), ExtResource("6_c6dcq"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul")]
+"values": [ExtResource("2_2p01n"), ExtResource("3_is1fi"), ExtResource("4_0nvu2"), ExtResource("5_wgxun"), ExtResource("6_c6dcq"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi")]
 }
 
 [sub_resource type="Animation" id="Animation_iqqps"]
