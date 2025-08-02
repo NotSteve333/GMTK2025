@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cjjw11qxsfxlu"]
 
-[ext_resource type="Script" uid="uid://ble2beenyh6vl" path="res://creature.gd" id="1_c5v53"]
+[ext_resource type="Script" uid="uid://bttwhk76vm1i0" path="res://screamer.gd" id="1_is1fi"]
 [ext_resource type="Texture2D" uid="uid://dlwngygvt5oyd" path="res://Sprites/Screamer/screamer-1.png" id="2_2p01n"]
 [ext_resource type="Texture2D" uid="uid://cp7knwgxhdmpi" path="res://Sprites/Screamer/screamer-9.png" id="3_is1fi"]
 [ext_resource type="Texture2D" uid="uid://drisrxph3acn0" path="res://Sprites/Screamer/screamer-3.png" id="4_0nvu2"]
@@ -23,10 +23,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0625, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.625, 0.6875, 0.75, 0.8125, 0.9375, 1, 1.125, 1.1875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.625, 0.6875, 0.75, 0.8125, 0.9375, 1, 1.125, 1.1875, 1.25, 1.33, 1.4, 1.45, 1.56, 1.65, 1.69, 1.75, 1.82, 1.91, 2, 2.07, 2.14, 2.24, 2.33, 2.41),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_2p01n"), ExtResource("3_is1fi"), ExtResource("4_0nvu2"), ExtResource("5_wgxun"), ExtResource("6_c6dcq"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi")]
+"values": [ExtResource("2_2p01n"), ExtResource("4_0nvu2"), ExtResource("5_wgxun"), ExtResource("6_c6dcq"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi")]
 }
 
 [sub_resource type="Animation" id="Animation_iqqps"]
@@ -52,7 +52,7 @@ _data = {
 }
 
 [node name="Screamer" type="CharacterBody2D"]
-script = ExtResource("1_c5v53")
+script = ExtResource("1_is1fi")
 metadata/_custom_type_script = "uid://ble2beenyh6vl"
 
 [node name="AnimationTree" type="AnimationPlayer" parent="."]

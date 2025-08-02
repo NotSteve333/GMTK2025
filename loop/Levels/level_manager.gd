@@ -1,6 +1,10 @@
 extends Node2D
 
+@onready var loop_packed: PackedScene = preload("res://Loop/loop_manager.tscn")
+
 @export var first_level = 1
+
+var loop
 var cur_level_id: int
 var cur_level: Level
 var result: bool
@@ -17,6 +21,7 @@ func end_level(win: bool) -> void:
 	
 func change_level(new_level: int) -> void:
 	cur_level.queue_free()
+	loop.queue_free()
 	load_level(new_level)
 	
 func load_level(level_id: int) -> void:
@@ -28,10 +33,12 @@ func load_level(level_id: int) -> void:
 	$CameraController.set_bounds(cur_level.cam_bounds)
 	add_child(cur_level)
 	$CameraController.position = cur_level.spawn_point + Vector2(576, 0)
-	$LoopManager.start_loop(cur_level.spawn_point, cur_level.tail_spawn)
+	loop = loop_packed.instantiate()
+	loop.loop_broke.connect(end_level)
+	add_child(loop)
+	loop.start_loop(cur_level.spawn_point, cur_level.tail_spawn)
 
 func _on_end_screen_timer_timeout() -> void:
-	$LoopManager.clear_loop()
 	if result:
 		win_level.emit()
 		change_level(cur_level_id + 1)

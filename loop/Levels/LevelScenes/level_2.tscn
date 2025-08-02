@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://vux3fjuf6wy0"]
+
+[ext_resource type="Script" uid="uid://fywua8qtnfpp" path="res://Levels/level.gd" id="1_822or"]
+[ext_resource type="Texture2D" uid="uid://ckfaui4ua6p4i" path="res://Sprites/Backgrounds/Desert2.png" id="2_ga2gt"]
+[ext_resource type="PackedScene" uid="uid://cjjw11qxsfxlu" path="res://screamer.tscn" id="3_4raqr"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_822or")
+cam_bounds = Vector4(-1920, -1920, 1920, 1920)
+spawn_point = Vector2(-1900, 0)
+tail_spawn = Vector2(-1930, 0)
+metadata/_custom_type_script = "uid://fywua8qtnfpp"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_ga2gt")
+
+[node name="Creatures" type="Node" parent="."]
+
+[node name="Screamer" parent="Creatures" instance=ExtResource("3_4raqr")]

@@ -14,6 +14,8 @@ var snap_index: int
 var active_inter: IntersectData
 var delete_threshold = 15.0
 
+signal loop_broke(win: bool)
+
 class IntersectData:
 	var finished: bool
 	var bounds: Vector2
@@ -103,4 +105,5 @@ func _on_loop_close_body_entered(body: Node2D) -> void:
 		body.caught(active_inter.center)
 	if body is Obstacle:
 		is_snapped = true
+		loop_broke.emit(false)
 		active_inter.center = body.position
