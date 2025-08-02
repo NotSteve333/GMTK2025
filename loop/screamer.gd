@@ -1,6 +1,6 @@
 extends Creature
 
-func caught(center: Vector2) -> void:
-	cur_state = State.caught
-	pull_center = center
-	print("deebo")
+func _process(delta: float) -> void:
+	match cur_state:
+		State.caught:
+			$AnimationTree.current_animation = "scream"

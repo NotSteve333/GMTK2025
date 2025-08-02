@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjjw11qxsfxlu"]
+[gd_scene load_steps=14 format=3 uid="uid://cjjw11qxsfxlu"]
 
 [ext_resource type="Script" uid="uid://bttwhk76vm1i0" path="res://screamer.gd" id="1_is1fi"]
 [ext_resource type="Texture2D" uid="uid://dlwngygvt5oyd" path="res://Sprites/Screamer/screamer-1.png" id="2_2p01n"]
@@ -51,6 +51,9 @@ _data = {
 &"scream": SubResource("Animation_xy3r0")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_is1fi"]
+radius = 2203.0
+
 [node name="Screamer" type="CharacterBody2D"]
 script = ExtResource("1_is1fi")
 metadata/_custom_type_script = "uid://ble2beenyh6vl"
@@ -66,3 +69,8 @@ texture = ExtResource("2_2p01n")
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PackedVector2Array(-162, 35, 34, 26, 211, 2, 305, 111, 242, 292, 362, 398, 389, 455, 440, 377, 410, 315, 357, 267, 445, 115, 435, -4, 222, -204, 38, -199, -138, -183, -251, -78, -371, 14, -354, 120, -237, 237, -189, 301, -203, 368, -131, 390, -143, 296, -111, 292, -138, 227, -263, 79)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_is1fi")
