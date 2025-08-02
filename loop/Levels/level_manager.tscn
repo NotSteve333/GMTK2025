@@ -10,3 +10,8 @@ script = ExtResource("1_3maf5")
 [node name="LoopManager" parent="." instance=ExtResource("2_h50aq")]
 
 [node name="CameraController" parent="." instance=ExtResource("3_iait3")]
+
+[node name="EndScreenTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="EndScreenTimer" to="." method="_on_end_screen_timer_timeout"]

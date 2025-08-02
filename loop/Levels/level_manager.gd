@@ -3,13 +3,17 @@ extends Node2D
 @export var first_level = 1
 var cur_level_id: int
 var cur_level: Level
+var result: bool
+
+signal win_level()
+signal lose_level()
 
 func _ready() -> void:
 	load_level(first_level)
 	
 func end_level(win: bool) -> void:
-	$LoopManager.clear_loop()
-	change_level(cur_level_id + int(win))
+	result = win
+	$EndScreenTimer.start()
 	
 func change_level(new_level: int) -> void:
 	cur_level.queue_free()
@@ -25,3 +29,12 @@ func load_level(level_id: int) -> void:
 	add_child(cur_level)
 	$CameraController.position = cur_level.spawn_point + Vector2(576, 0)
 	$LoopManager.start_loop(cur_level.spawn_point, cur_level.tail_spawn)
+
+func _on_end_screen_timer_timeout() -> void:
+	$LoopManager.clear_loop()
+	if result:
+		win_level.emit()
+		change_level(cur_level_id + 1)
+	else:
+		lose_level.emit()
+		change_level(cur_level_id)
