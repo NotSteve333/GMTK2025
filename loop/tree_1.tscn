@@ -1,17 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqro3jyjfnik3"]
+[gd_scene load_steps=9 format=3 uid="uid://dqro3jyjfnik3"]
 
 [ext_resource type="Script" uid="uid://v7y8fo53su4b" path="res://tree.gd" id="1_087k8"]
+[ext_resource type="Texture2D" uid="uid://coo8ocu0112vp" path="res://Sprites/Trees/tree_layer1.png" id="2_ipky0"]
+[ext_resource type="Script" uid="uid://d4fcbgscqkq42" path="res://leaf_layer.gd" id="3_re4u3"]
+[ext_resource type="Texture2D" uid="uid://d2g51em5hbngd" path="res://Sprites/Trees/tree_layer2.png" id="4_colx7"]
+[ext_resource type="Texture2D" uid="uid://balrik2rjx38u" path="res://Sprites/Trees/tree_layer5.png" id="5_725ce"]
+[ext_resource type="Texture2D" uid="uid://c1xv6vu0ryxl4" path="res://Sprites/Trees/tree_layer6.png" id="6_l4c1y"]
+[ext_resource type="Texture2D" uid="uid://c4425lqerodc4" path="res://Sprites/Trees/tree_layer7.png" id="7_3xa4o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_087k8"]
-radius = 16.0312
+radius = 64.195
 
 [node name="Tree1" type="StaticBody2D"]
+z_index = 1
 script = ExtResource("1_087k8")
 metadata/_custom_type_script = "uid://enbjrmq3d7aa"
 
 [node name="TreeLayers" type="Node2D" parent="."]
+position = Vector2(13, 26)
 
 [node name="Sprite2D" type="Sprite2D" parent="TreeLayers"]
+position = Vector2(-88, 60)
+texture = ExtResource("2_ipky0")
+script = ExtResource("3_re4u3")
+
+[node name="LeafLayer" type="Sprite2D" parent="TreeLayers"]
+position = Vector2(-49, 63)
+rotation = -0.53372
+scale = Vector2(0.984424, 0.803343)
+texture = ExtResource("4_colx7")
+script = ExtResource("3_re4u3")
+metadata/_custom_type_script = "uid://d4fcbgscqkq42"
+
+[node name="LeafLayer2" type="Sprite2D" parent="TreeLayers"]
+position = Vector2(-90, 34)
+texture = ExtResource("5_725ce")
+script = ExtResource("3_re4u3")
+metadata/_custom_type_script = "uid://d4fcbgscqkq42"
+
+[node name="LeafLayer4" type="Sprite2D" parent="TreeLayers"]
+position = Vector2(-51, -41)
+rotation = 0.575825
+scale = Vector2(0.652606, 0.696547)
+texture = ExtResource("6_l4c1y")
+script = ExtResource("3_re4u3")
+metadata/_custom_type_script = "uid://d4fcbgscqkq42"
+
+[node name="LeafLayer3" type="Sprite2D" parent="TreeLayers"]
+position = Vector2(-82, -12)
+scale = Vector2(1.18016, 1.10634)
+texture = ExtResource("7_3xa4o")
+script = ExtResource("3_re4u3")
+metadata/_custom_type_script = "uid://d4fcbgscqkq42"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_087k8")

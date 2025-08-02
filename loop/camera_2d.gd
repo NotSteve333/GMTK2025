@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+@export var cam_speed: float = 250.0
+
 var direction: Vector2
-var speed: float
 
 func _process(delta: float) -> void:
 	var y_dir = Input.get_axis("up", "down")
@@ -9,7 +10,7 @@ func _process(delta: float) -> void:
 	direction = Vector2(x_dir, y_dir).normalized()
 
 func _physics_process(delta: float) -> void:
-	velocity = velocity.move_toward(direction * speed, speed / 4.0)
+	velocity = velocity.move_toward(direction * cam_speed, cam_speed / 4.0)
 	move_and_slide()
 
 func set_bounds(new_bounds: Vector4) -> void:

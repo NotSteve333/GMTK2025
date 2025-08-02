@@ -11,7 +11,6 @@ func check_collisions() -> bool:
 	var collisions = vision.collision_result
 	for i in range(collisions.size()):
 		if $ShapeCast2D.get_collider(i) is LoopHead:
-			print("hit")
 			return true
 	return false
 
@@ -31,7 +30,6 @@ func _process(delta: float) -> void:
 			
 
 func _on_sus_timer_timeout() -> void:
-	print("timeout")
 	if check_collisions():
 		cur_state = State.aware
 	else:
