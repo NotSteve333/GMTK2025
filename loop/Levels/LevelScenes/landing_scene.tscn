@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dt2724m6xdpyb"]
+
+[node name="LandingScene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

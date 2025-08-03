@@ -1,22 +1,15 @@
 [gd_scene format=3 uid="uid://ikp7oprm8nbl"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MainMenu" type="Node2D"]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.201
 anchor_right = 0.785
 anchor_bottom = 1.0
 offset_left = -231.552
 offset_right = 253.68
-offset_bottom = 5.0
+offset_bottom = 70.0
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
