@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://ck60n4li0d22b"]
+[gd_scene load_steps=16 format=3 uid="uid://ck60n4li0d22b"]
 
 [ext_resource type="Script" uid="uid://fywua8qtnfpp" path="res://Levels/level.gd" id="1_xrpjf"]
 [ext_resource type="PackedScene" uid="uid://2qxjlgnkvpv6" path="res://blinker.tscn" id="2_xrpjf"]
+[ext_resource type="PackedScene" uid="uid://cjjw11qxsfxlu" path="res://screamer.tscn" id="3_onsyb"]
 [ext_resource type="Script" uid="uid://enbjrmq3d7aa" path="res://obstacle.gd" id="3_vh0y8"]
 [ext_resource type="Texture2D" uid="uid://d1vw7asa7mmbm" path="res://Sprites/Backgrounds/Forest.png" id="3_xrpjf"]
 
@@ -45,8 +46,36 @@ metadata/_custom_type_script = "uid://fywua8qtnfpp"
 [node name="Creatures" type="Node" parent="."]
 
 [node name="Blinker" parent="Creatures" instance=ExtResource("2_xrpjf")]
-position = Vector2(182, -117)
+position = Vector2(1502, 679)
+rotation = 1.1424
 scale = Vector2(0.249117, 0.249117)
+
+[node name="Screamer" parent="Creatures" instance=ExtResource("3_onsyb")]
+rotation = 0.899963
+
+[node name="Blinker2" parent="Creatures" instance=ExtResource("2_xrpjf")]
+position = Vector2(-1583, 457)
+rotation = -1.0173
+scale = Vector2(0.249117, 0.249117)
+
+[node name="Blinker3" parent="Creatures" instance=ExtResource("2_xrpjf")]
+position = Vector2(-637, -390)
+rotation = -0.186004
+scale = Vector2(0.249117, 0.249117)
+
+[node name="Blinker4" parent="Creatures" instance=ExtResource("2_xrpjf")]
+position = Vector2(-207, 434)
+rotation = 2.92866
+scale = Vector2(0.249117, 0.249117)
+
+[node name="Blinker5" parent="Creatures" instance=ExtResource("2_xrpjf")]
+position = Vector2(970, -501)
+rotation = -1.38576
+scale = Vector2(0.249117, 0.249117)
+
+[node name="Screamer2" parent="Creatures" instance=ExtResource("3_onsyb")]
+position = Vector2(-1420, -627)
+rotation = -0.865377
 
 [node name="Obstacles" type="Node" parent="."]
 

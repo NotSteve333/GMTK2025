@@ -11,6 +11,33 @@
 radius = 261.651
 height = 752.106
 
+[sub_resource type="Animation" id="Animation_dhxtf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_25vyr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vision/VisionCircle:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1300.0]
+}
+
 [sub_resource type="Animation" id="Animation_80uei"]
 resource_name = "idle"
 length = 7.0
@@ -40,33 +67,6 @@ tracks/1/keys = {
 "values": [1300.0, 1000.0, 800.0, 100.0, 800.0, 1000.0, 1300.0, 1000.0, 800.0, 100.0, 800.0, 1000.0, 800.0, 100.0, 800.0, 1000.0, 1300.0]
 }
 
-[sub_resource type="Animation" id="Animation_dhxtf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_25vyr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Vision/VisionCircle:shape:radius")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1300.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gl7vf"]
 _data = {
 &"RESET": SubResource("Animation_dhxtf"),
@@ -78,6 +78,7 @@ radius = 1300.0
 
 [node name="Blinker" type="CharacterBody2D"]
 script = ExtResource("1_25vyr")
+my_size = 100.0
 metadata/_custom_type_script = "uid://ble2beenyh6vl"
 
 [node name="Eyes" type="Sprite2D" parent="."]

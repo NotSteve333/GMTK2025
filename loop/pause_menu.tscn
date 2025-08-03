@@ -21,9 +21,14 @@ layout_mode = 2
 text = "Back to Game
 "
 
+[node name="Restart" type="Button" parent="HFlowContainer"]
+layout_mode = 2
+text = "Restart Level"
+
 [node name="MainMenu" type="Button" parent="HFlowContainer"]
 layout_mode = 2
 text = "Maine Menu"
 
 [connection signal="pressed" from="HFlowContainer/BackToGame" to="." method="_on_back_to_game_pressed"]
+[connection signal="pressed" from="HFlowContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="HFlowContainer/MainMenu" to="." method="_on_main_menu_pressed"]

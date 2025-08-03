@@ -5,7 +5,7 @@ signal aware(my_location: Vector2)
 signal im_caught()
 
 var pull_center: Vector2
-var my_size: float
+@export var my_size: float
 var creature_id: int
 var has_emitted = false
 @export var cur_state: State = State.unaware
@@ -22,10 +22,10 @@ func make_aware() -> void:
 
 func _physics_process(delta: float) -> void:
 	if cur_state == State.caught:
+		im_caught.emit()
 		var diff = pull_center - position
 		var diff_m = diff.length()
 		if diff_m < my_size:
-			im_caught.emit()
 			queue_free()
 		velocity = min(500.0, diff_m) * diff.normalized()
 		move_and_slide()

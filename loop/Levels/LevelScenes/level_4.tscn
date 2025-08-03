@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://byrpphv2ghj45"]
+
+[ext_resource type="Script" uid="uid://fywua8qtnfpp" path="res://Levels/level.gd" id="1_rkx17"]
+[ext_resource type="Texture2D" uid="uid://dq5gklkc7034a" path="res://Sprites/Backgrounds/Decay.png" id="2_clev3"]
+[ext_resource type="Script" uid="uid://enbjrmq3d7aa" path="res://obstacle.gd" id="2_hdxdx"]
+
+[node name="Level4" type="Node2D"]
+script = ExtResource("1_rkx17")
+level_id = 4
+cam_bounds = Vector4(-1920, -1080, 1920, 1080)
+spawn_point = Vector2(-1905, 0)
+tail_spawn = Vector2(-1935, 0)
+metadata/_custom_type_script = "uid://fywua8qtnfpp"
+
+[node name="Creatures" type="Node" parent="."]
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Obstacle" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-17, -29)
+script = ExtResource("2_hdxdx")
+metadata/_custom_type_script = "uid://enbjrmq3d7aa"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle"]
+polygon = PackedVector2Array(-1383, 675, -1373, 774, -1239, 794, -1162, 791, -974, 752, -813, 779, -438, 615, -333, 615, -294, 586, -257, 574, -149, 421, -84, 349, 146, 213, 275, 65, 336, 33, 444, 47, 458, 121, 418, 211, 330, 286, 135, 415, 97, 484, 124, 514, 113, 564, 148, 604, 220, 642, 246, 617, 361, 607, 406, 593, 449, 554, 478, 475, 563, 426, 703, 397, 817, 317, 895, 191, 938, 62, 992, -86, 1050, -190, 1042, -233, 966, -330, 932, -414, 874, -462, 834, -515, 618, -570, 589, -593, 544, -594, 350, -668, 203, -779, 91, -753, 2, -682, -100, -579, -212, -497, -315, -486, -460, -499, -505, -470, -563, -399, -591, -302, -562, -265, -544, -225, -563, -146, -601, -89, -696, -76, -852, 53, -1007, 212, -1099, 365, -1173, 470, -1268, 557)
+
+[node name="Obstacle2" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-1579, -784)
+script = ExtResource("2_hdxdx")
+metadata/_custom_type_script = "uid://enbjrmq3d7aa"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_clev3")

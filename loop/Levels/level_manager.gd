@@ -13,8 +13,9 @@ signal win_level(level_id: int)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		pause_game(false)
-		$PauseMenu.visible = true
+		pause_game(%PauseMenu.visible)
+	if event.is_action_pressed("reset"):
+		change_level(cur_level_id)
 
 func _ready() -> void:
 	load_level(first_level)
@@ -32,6 +33,7 @@ func change_level(new_level: int) -> void:
 	load_level(new_level)
 	
 func load_level(level_id: int) -> void:
+	%PauseMenu.visible = false
 	cur_level_id = level_id
 	var pathname = str("res://Levels/LevelScenes/level_", level_id, ".tscn")
 	var pre_scene = load(pathname)
@@ -55,6 +57,7 @@ func _on_end_screen_timer_timeout() -> void:
 
 func pause_game(pause: bool) -> void:
 	$LoopManager/LoopHead.is_stopped = !pause
+	%PauseMenu.visible = !pause
 	for i in get_children():
 		i.set_process(pause) # Stops _process()
 		i.set_physics_process(pause) # Stops _physics_process()
@@ -64,7 +67,10 @@ func pause_game(pause: bool) -> void:
 
 func _on_pause_menu_back_to_game() -> void:
 	pause_game(true)
-	$PauseMenu.visible = false
+	%PauseMenu.visible = false
 
 func _on_pause_menu_quit() -> void:
 	win_level.emit(0)
+
+func _on_pause_menu_restart() -> void:
+	change_level(cur_level_id)

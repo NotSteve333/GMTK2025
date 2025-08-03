@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://vux3fjuf6wy0"]
+[gd_scene load_steps=6 format=3 uid="uid://vux3fjuf6wy0"]
 
 [ext_resource type="Script" uid="uid://fywua8qtnfpp" path="res://Levels/level.gd" id="1_822or"]
 [ext_resource type="Texture2D" uid="uid://ckfaui4ua6p4i" path="res://Sprites/Backgrounds/Desert2.png" id="2_ga2gt"]
 [ext_resource type="PackedScene" uid="uid://cjjw11qxsfxlu" path="res://screamer.tscn" id="3_4raqr"]
+[ext_resource type="PackedScene" uid="uid://2qxjlgnkvpv6" path="res://blinker.tscn" id="4_3jp4g"]
+[ext_resource type="Script" uid="uid://enbjrmq3d7aa" path="res://obstacle.gd" id="4_wyqnd"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_822or")
@@ -18,3 +20,81 @@ texture = ExtResource("2_ga2gt")
 [node name="Creatures" type="Node" parent="."]
 
 [node name="Screamer" parent="Creatures" instance=ExtResource("3_4raqr")]
+rotation = -2.43615
+
+[node name="Blinker" parent="Creatures" instance=ExtResource("4_3jp4g")]
+position = Vector2(-806, 627)
+rotation = 4.51158
+scale = Vector2(0.375784, 0.375784)
+
+[node name="Blinker2" parent="Creatures" instance=ExtResource("4_3jp4g")]
+position = Vector2(-873, -643)
+rotation = 1.46636
+scale = Vector2(0.375784, 0.375784)
+
+[node name="Blinker3" parent="Creatures" instance=ExtResource("4_3jp4g")]
+position = Vector2(1111, -522)
+rotation = 2.35616
+scale = Vector2(0.375784, 0.375784)
+
+[node name="Screamer2" parent="Creatures" instance=ExtResource("3_4raqr")]
+position = Vector2(1454, 785)
+rotation = 1.93015
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Obstacle" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(484, -5)
+script = ExtResource("4_wyqnd")
+metadata/_custom_type_script = "uid://enbjrmq3d7aa"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle"]
+polygon = PackedVector2Array(-131, 20, 44, -240, 67, -235, 110, -226, 134, -200, 145, -152, 133, -133, 109, -40, 71, 40, 40, 96, -23, 192, -84, 162, -112, 161, -129, 106, -139, 84)
+
+[node name="Obstacle2" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-501, 205)
+script = ExtResource("4_wyqnd")
+metadata/_custom_type_script = "uid://enbjrmq3d7aa"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle2"]
+polygon = PackedVector2Array(-21, -44, -34, -9, -48, -1, -40, 31, -21, 32, 8, 58, 34, 41, 46, 0, 36, -24, 17, -48)
+
+[node name="Obstacle3" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-1420, -936)
+script = ExtResource("4_wyqnd")
+metadata/_custom_type_script = "uid://enbjrmq3d7aa"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle3"]
+polygon = PackedVector2Array(-69, 0, 5, 60, 25, 47, 65, -27, 63, -49, 24, -57, -36, -62, -69, -19)
+
+[node name="Obstacle4" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-1111, 217)
+script = ExtResource("4_wyqnd")
+metadata/_custom_type_script = "uid://enbjrmq3d7aa"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle4"]
+polygon = PackedVector2Array(43, -139, 16, -140, -45, -93, -101, -46, -96, 9, -82, 73, -75, 91, -6, 118, 46, 115, 103, 61, 142, 13, 132, -11, 103, -23, 65, -109)
+
+[node name="Obstacle5" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-129, 923)
+script = ExtResource("4_wyqnd")
+metadata/_custom_type_script = "uid://enbjrmq3d7aa"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle5"]
+polygon = PackedVector2Array(-7, -114, -60, -96, -105, -33, -136, 24, -74, 57, -20, 49, 21, 73, 63, 84, 87, 54, 129, 54, 153, 12, 149, -9, 124, -23, 131, -58, 34, -93)
+
+[node name="Obstacle6" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(1245, 367)
+script = ExtResource("4_wyqnd")
+metadata/_custom_type_script = "uid://enbjrmq3d7aa"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle6"]
+polygon = PackedVector2Array(-38, -31, -49, -20, -63, -13, -71, 24, -19, 65, 30, 54, 42, 43, 59, 24, 46, 6, 39, -36, 8, -42)
+
+[node name="Obstacle7" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-328, -751)
+script = ExtResource("4_wyqnd")
+metadata/_custom_type_script = "uid://enbjrmq3d7aa"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle7"]
+polygon = PackedVector2Array(5, 27, -22, 17, -22, 3, -7, -17, 10, -18, 17, -7, 19, 12)
