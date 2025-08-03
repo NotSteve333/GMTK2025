@@ -8,6 +8,7 @@ var levels_done = 0
 var first_level = 1
 
 func _ready() ->void:
+	complete_level(0)
 	start_level(first_level)
 
 func begin_landing(level: int) -> void:
