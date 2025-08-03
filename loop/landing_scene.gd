@@ -8,10 +8,7 @@ signal start_level(this_level: int)
 var coming_in: bool = true
 
 func _ready() -> void:
-	var planet_name = str("res://Sprites/Intros/Landing", cur_level, ".png")
-	var image = Image.load_from_file(planet_name)
-	var texture = ImageTexture.create_from_image(image)
-	$BG/Planet.texture = texture
+	$BG.get_child(cur_level -1).visible = true
 	$AnimationPlayer.current_animation = "coming_in"
 
 func bring_up_menu() -> void:

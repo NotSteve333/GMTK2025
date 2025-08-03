@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dt2724m6xdpyb"]
+[gd_scene load_steps=16 format=3 uid="uid://dt2724m6xdpyb"]
 
 [ext_resource type="Script" uid="uid://5m82wxr0l5w0" path="res://landing_scene.gd" id="1_4q2mw"]
 [ext_resource type="Texture2D" uid="uid://cpqijccaxrcjh" path="res://Sprites/Intros/Space Background.jpg" id="2_4q2mw"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://kgku48kcoeb5" path="res://ship.gd" id="5_7a5io"]
 [ext_resource type="Texture2D" uid="uid://cplqgrh42g3tn" path="res://Sprites/Ship/ship-1.png" id="5_rnlf1"]
 [ext_resource type="Texture2D" uid="uid://dn80c2b5dgt0c" path="res://Sprites/Ship/ship-4.png" id="5_yh7a8"]
+[ext_resource type="Texture2D" uid="uid://gl1hb5i8cmit" path="res://Sprites/Intros/Landing2.png" id="7_yh7a8"]
+[ext_resource type="Texture2D" uid="uid://c0sw1ryq8jumn" path="res://Sprites/Intros/Landing4.png" id="9_y26nj"]
 
 [sub_resource type="Animation" id="Animation_aoehx"]
 length = 0.001
@@ -183,14 +185,25 @@ libraries = {
 
 [node name="BG" type="Node2D" parent="."]
 
-[node name="Planet" type="Sprite2D" parent="BG"]
+[node name="Planet1" type="Sprite2D" parent="BG"]
+visible = false
 position = Vector2(0, 2160)
 texture = ExtResource("2_ilc0q")
+
+[node name="Planet2" type="Sprite2D" parent="BG"]
+visible = false
+position = Vector2(0, 2160)
+texture = ExtResource("7_yh7a8")
 
 [node name="Stars" type="Sprite2D" parent="BG"]
 rotation = -3.13876
 scale = Vector2(1.28627, 1.09583)
 texture = ExtResource("2_4q2mw")
+
+[node name="Planet4" type="Sprite2D" parent="BG"]
+visible = false
+position = Vector2(0, 2160)
+texture = ExtResource("9_y26nj")
 
 [node name="LandingMenu" parent="." instance=ExtResource("4_aoehx")]
 visible = false
@@ -210,6 +223,8 @@ scale = Vector2(3, 3)
 position = Vector2(-299, -287)
 texture = ExtResource("5_rnlf1")
 script = ExtResource("5_7a5io")
+
+[node name="Loop" type="Sprite2D" parent="Ship"]
 
 [connection signal="back" from="LandingMenu" to="." method="_on_landing_menu_back"]
 [connection signal="deploy" from="LandingMenu" to="." method="_on_landing_menu_deploy"]

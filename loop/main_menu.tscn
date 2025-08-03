@@ -13,14 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://mprnifwpj3ku" path="res://Sprites/MainMenu/figuring-out_0002_Layer-12-copy.png" id="10_8u0te"]
 [ext_resource type="Texture2D" uid="uid://ceaisa7s7r00n" path="res://Sprites/MainMenu/MainMenu-4.png" id="11_oiatc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nlkkf"]
-radius = 323.966
+[sub_resource type="CircleShape2D" id="CircleShape2D_glbon"]
+radius = 467.077
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qe12f"]
 radius = 426.733
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_glbon"]
-radius = 467.077
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlkkf"]
+radius = 323.966
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_qe12f")
@@ -35,41 +35,41 @@ zoom = Vector2(0.3, 0.3)
 
 [node name="Planets" type="Node2D" parent="."]
 
-[node name="Planet1" type="CharacterBody2D" parent="Planets"]
-position = Vector2(207, 914)
+[node name="Planet2" type="CharacterBody2D" parent="Planets"]
+z_index = 4
 script = ExtResource("2_nlkkf")
-planet_id = 4
+planet_id = 1
 metadata/_custom_type_script = "uid://bynhaeqh40r7b"
 
-[node name="Clickable" type="Area2D" parent="Planets/Planet1"]
-position = Vector2(-718, -1437)
+[node name="Shine" type="Sprite2D" parent="Planets/Planet2"]
+position = Vector2(-632, 317)
+texture = ExtResource("10_8u0te")
+
+[node name="Clickable" type="Area2D" parent="Planets/Planet2"]
+position = Vector2(-657, 323)
 script = ExtResource("7_dy7ct")
-planet_id = 4
+planet_id = 1
 
-[node name="Shine" type="Sprite2D" parent="Planets/Planet1/Clickable"]
-position = Vector2(-40, -1)
-texture = ExtResource("5_j5v2v")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Planet2/Clickable"]
+shape = SubResource("CircleShape2D_glbon")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Planet1/Clickable"]
-shape = SubResource("CircleShape2D_nlkkf")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Planets/Planet1/Clickable"]
-position = Vector2(-4, -13)
-texture = ExtResource("6_iotk1")
+[node name="Sprite2D4" type="Sprite2D" parent="Planets/Planet2/Clickable"]
+position = Vector2(1, 11)
+texture = ExtResource("11_oiatc")
 
 [node name="Planet4" type="CharacterBody2D" parent="Planets"]
 script = ExtResource("2_nlkkf")
 planet_id = 2
 metadata/_custom_type_script = "uid://bynhaeqh40r7b"
 
+[node name="Shine" type="Sprite2D" parent="Planets/Planet4"]
+position = Vector2(819, 105)
+texture = ExtResource("7_w44g7")
+
 [node name="Clickable" type="Area2D" parent="Planets/Planet4"]
 position = Vector2(824, 126)
 script = ExtResource("7_dy7ct")
 planet_id = 2
-
-[node name="Shine" type="Sprite2D" parent="Planets/Planet4/Clickable"]
-position = Vector2(-5, -21)
-texture = ExtResource("7_w44g7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Planet4/Clickable"]
 shape = SubResource("CircleShape2D_qe12f")
@@ -79,30 +79,33 @@ position = Vector2(2, -1)
 texture = ExtResource("8_cm266")
 
 [node name="Sun" type="Sprite2D" parent="Planets"]
+z_index = 1
 texture = ExtResource("9_g8g3n")
 
-[node name="Planet2" type="CharacterBody2D" parent="Planets"]
+[node name="Planet1" type="CharacterBody2D" parent="Planets"]
+position = Vector2(207, 914)
 script = ExtResource("2_nlkkf")
-planet_id = 1
+planet_id = 4
 metadata/_custom_type_script = "uid://bynhaeqh40r7b"
 
-[node name="Clickable" type="Area2D" parent="Planets/Planet2"]
-position = Vector2(-657, 323)
+[node name="Shine" type="Sprite2D" parent="Planets/Planet1"]
+position = Vector2(-758, -1438)
+texture = ExtResource("5_j5v2v")
+
+[node name="Clickable" type="Area2D" parent="Planets/Planet1"]
+position = Vector2(-718, -1437)
 script = ExtResource("7_dy7ct")
-planet_id = 1
+planet_id = 4
 
-[node name="Shine" type="Sprite2D" parent="Planets/Planet2/Clickable"]
-position = Vector2(25, -6)
-texture = ExtResource("10_8u0te")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Planet1/Clickable"]
+shape = SubResource("CircleShape2D_nlkkf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Planet2/Clickable"]
-shape = SubResource("CircleShape2D_glbon")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Planets/Planet2/Clickable"]
-position = Vector2(1, 11)
-texture = ExtResource("11_oiatc")
+[node name="Sprite2D3" type="Sprite2D" parent="Planets/Planet1/Clickable"]
+position = Vector2(-4, -13)
+texture = ExtResource("6_iotk1")
 
 [node name="MainMenuUI" parent="." instance=ExtResource("8_8qtwp")]
+z_index = 10
 offset_left = -1717.0
 offset_top = -109.0
 offset_right = -1717.0

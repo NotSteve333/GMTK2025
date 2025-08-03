@@ -8,14 +8,13 @@ var landing_scene
 var menu_scene
 var win_scene
 var level_manager
-var levels_done = 0
-var first_level = 1
+var levels_done: PackedByteArray = [false, false, false, false]
 
 func _ready() ->void:
 	print("READY:", get_script().resource_path)
 	show_menu(true, levels_done)
 	
-func show_menu(startup: bool, game_state: int) -> void:
+func show_menu(startup: bool, game_state: PackedByteArray) -> void:
 	menu_scene = menu_scene_packed.instantiate()
 	menu_scene.startup = startup
 	menu_scene.completion_state = game_state
@@ -46,12 +45,12 @@ func start_level(level: int) -> void:
 	add_child(level_manager)
 
 func complete_level(level: int) -> void:
-	levels_done = levels_done + level
+	levels_done[level - 1] = true
 	if level_manager:
 		level_manager.queue_free()
 	if landing_scene:
 		landing_scene.queue_free()
-	if levels_done == 7:
+	if levels_done[0] and levels_done[1] and levels_done[3]:
 		show_win()
 	else:
 		show_menu(false, levels_done)

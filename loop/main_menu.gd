@@ -1,7 +1,6 @@
 extends Node2D
 
-@export var completion_state = 0
-
+@export var completion_state: PackedByteArray
 @export var startup: bool
 
 signal quit()
@@ -11,9 +10,13 @@ func _ready() -> void:
 	print("READY:", get_script().resource_path)
 	$MainMenuUI.visible = startup
 	var planets = $Planets
+	var j = 0
 	for i in planets.get_children():
 		if i is Planet:
-			i.get_child(0).click_me.connect(select_stage)
+			i.get_child(1).click_me.connect(select_stage)
+			i.get_child(0).visible = completion_state[j]
+		j += 1
+				
 
 func select_stage(level_id: int) -> void:
 	if !$MainMenuUI.visible:
