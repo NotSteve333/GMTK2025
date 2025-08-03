@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var level_manager_packed: PackedScene = preload("res://Levels/level_manager.tscn")
+@onready var landing_scene_packed: PackedScene = preload("res://landing_scene.tscn")
 var level_manager
 var levels_done = 0
 var first_level = 1
@@ -9,6 +10,7 @@ func _ready() ->void:
 	start_level(first_level)
 
 func begin_landing(level: int) -> void:
+	
 
 func start_level(level: int) -> void:
 	level_manager = level_manager_packed.instantiate()

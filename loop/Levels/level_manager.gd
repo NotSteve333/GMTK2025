@@ -42,3 +42,11 @@ func _on_end_screen_timer_timeout() -> void:
 		win_level.emit(cur_level_id)
 	else:
 		change_level(cur_level_id)
+
+func pause_game(pause: bool) -> void:
+	for i in get_children():
+		i.set_process(pause) # Stops _process()
+		i.set_physics_process(pause) # Stops _physics_process()
+		i.set_process_input(pause) # Stops _input()
+		i.set_process_unhandled_input(pause) # Stops _unhandled_input()
+		i.set_process_unhandled_key_input(pause) # Stops _unhandled_key_input()

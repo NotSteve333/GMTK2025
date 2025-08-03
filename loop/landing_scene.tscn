@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt2724m6xdpyb"]
+
+[ext_resource type="Script" uid="uid://5m82wxr0l5w0" path="res://landing_scene.gd" id="1_4q2mw"]
+[ext_resource type="Texture2D" uid="uid://gl1hb5i8cmit" path="res://Sprites/Intros/Desert1.png" id="2_ilc0q"]
+
+[node name="LandingScene" type="Node2D"]
+script = ExtResource("1_4q2mw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ilc0q")
