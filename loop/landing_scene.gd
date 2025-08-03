@@ -20,6 +20,8 @@ func bring_up_menu() -> void:
 func _on_landing_menu_back() -> void:
 	back.emit(0)
 
+func switc_to_idle() -> void:
+	$AnimationPlayer.current_animation = "idle"
 
 func _on_landing_menu_deploy() -> void:
 	start_level.emit(cur_level)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dt2724m6xdpyb"]
+[gd_scene load_steps=14 format=3 uid="uid://dt2724m6xdpyb"]
 
 [ext_resource type="Script" uid="uid://5m82wxr0l5w0" path="res://landing_scene.gd" id="1_4q2mw"]
 [ext_resource type="Texture2D" uid="uid://cpqijccaxrcjh" path="res://Sprites/Intros/Space Background.jpg" id="2_4q2mw"]
@@ -31,7 +31,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-424, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-299, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
@@ -42,7 +42,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-1809, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-287, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/3/type = "value"
@@ -79,11 +79,14 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.76667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(3.76667, 4.96667),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"bring_up_menu"
+}, {
+"args": [],
+"method": &"switc_to_idle"
 }]
 }
 tracks/2/type = "bezier"
@@ -121,10 +124,50 @@ tracks/4/keys = {
 "values": [ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8")]
 }
 
+[sub_resource type="Animation" id="Animation_xfb24"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-299, -0.25, 0, 0.25, 0, -280, -0.25, 0, 0.25, 0, -299, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.26667, 2.03333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ship:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-287, -0.25, 0, 0.25, 0, -260, -0.25, 0, 0.25, 0, -287, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.766667, 2.03333)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ship:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.11, 0.22, 0.34, 0.46, 0.58, 0.68, 0.8, 0.91, 1.03, 1.17, 1.29, 1.41, 1.52, 1.65, 1.77, 1.89, 1.97),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aoehx"]
 _data = {
 &"RESET": SubResource("Animation_aoehx"),
-&"coming_in": SubResource("Animation_ilc0q")
+&"coming_in": SubResource("Animation_ilc0q"),
+&"idle": SubResource("Animation_xfb24")
 }
 
 [node name="LandingScene" type="Node2D"]
@@ -164,7 +207,7 @@ grow_horizontal = 1
 scale = Vector2(3, 3)
 
 [node name="Ship" type="Sprite2D" parent="."]
-position = Vector2(-424, -1809)
+position = Vector2(-299, -287)
 texture = ExtResource("5_rnlf1")
 script = ExtResource("5_7a5io")
 
