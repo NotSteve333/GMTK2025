@@ -21,6 +21,8 @@ func _ready() -> void:
 	
 func end_level(win: bool, reason: Vector2) -> void:
 	result = win
+	if reason.length() > 0.0:
+		$CameraController.set_kill(reason)
 	$EndScreenTimer.start()
 	
 func change_level(new_level: int) -> void:
@@ -35,7 +37,9 @@ func load_level(level_id: int) -> void:
 	cur_level = pre_scene.instantiate()
 	cur_level.end_level.connect(end_level)
 	$CameraController.set_bounds(cur_level.cam_bounds)
+	$CameraController.not_kill()
 	add_child(cur_level)
+	
 	$CameraController.position = cur_level.spawn_point + Vector2(576, 0)
 	loop = loop_packed.instantiate()
 	loop.loop_broke.connect(end_level)

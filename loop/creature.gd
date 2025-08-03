@@ -7,6 +7,7 @@ signal im_caught()
 var pull_center: Vector2
 var my_size: float
 var creature_id: int
+var has_emitted = false
 @export var cur_state: State = State.unaware
 
 enum State {

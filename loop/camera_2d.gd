@@ -18,13 +18,18 @@ func _physics_process(delta: float) -> void:
 	if !is_aware:
 		velocity = velocity.move_toward(direction * cam_speed, cam_speed / 4.0)
 	else:
-		$Camera2D.zoom = $Camera2D.zoom * 1.1
-		velocity = velocity.move_toward(direction * cam_speed, cam_speed)
+		$Camera2D.zoom = $Camera2D.zoom * 1.05
+		velocity = velocity.move_toward(direction * cam_speed, cam_speed / 3.0)
 	move_and_slide()
 
 func set_kill(focus: Vector2) -> void:
 	is_aware = true
 	aware_spot = focus
+	
+func not_kil() -> void:
+	is_aware = false
+	$Camera2D.zoom = Vector2(1.0, 1.0)
+	velocity = Vector2.ZERO
 
 func set_bounds(new_bounds: Vector4) -> void:
 	$Camera2D.limit_left = new_bounds[0]

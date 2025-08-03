@@ -29,7 +29,8 @@ func _process(delta: float) -> void:
 				$Vision/VisionTimer.stop()
 				cur_state = State.unaware
 		State.aware:
-			aware.emit()
-
+			if !has_emitted:
+				aware.emit(position)
+				has_emitted = true
 func _on_vision_timer_timeout() -> void:
 	cur_state = State.aware
