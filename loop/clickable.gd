@@ -13,7 +13,9 @@ func _input_event(viewport, event, shape_idx):
 		click_me.emit(planet_id)
 
 func _on_mouse_enter() -> void:
+	$Shine.visible = true
 	can_click_me = true
 
 func _on_mouse_exit() -> void:
+	$Shine.visible = false
 	can_click_me = false

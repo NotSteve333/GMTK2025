@@ -16,7 +16,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 [application]
 
 config/name="Loop"
-run/main_scene="uid://cdavh70tdor58"
+run/main_scene="uid://dyii8oqte6qrj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

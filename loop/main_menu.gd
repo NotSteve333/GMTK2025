@@ -16,7 +16,6 @@ func _ready() -> void:
 
 func select_stage(level_id: int) -> void:
 	if !$MainMenuUI.visible:
-		print(level_id)
 		choose_stage.emit(level_id)
 
 func _input(event: InputEvent) -> void:
