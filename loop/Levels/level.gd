@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func update_catches() -> void:
 	catches += 1
+	print(catches, " out of ", num_creatures)
 	if catches == num_creatures:
 		end_level.emit(true, Vector2.ZERO)
 

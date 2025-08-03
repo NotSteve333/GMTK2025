@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://dr1lot1hwlvxd"]
+[gd_scene load_steps=2 format=3 uid="uid://dr1lot1hwlvxd"]
+
+[ext_resource type="Texture2D" uid="uid://bn7k60gnncyut" path="res://Sprites/Backgrounds/sminkey.webp" id="1_l2arl"]
 
 [node name="WinScreen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l2arl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)

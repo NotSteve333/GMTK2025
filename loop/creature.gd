@@ -8,6 +8,7 @@ var pull_center: Vector2
 @export var my_size: float
 var creature_id: int
 var has_emitted = false
+var has_caught = false
 @export var cur_state: State = State.unaware
 
 enum State {
@@ -22,7 +23,9 @@ func make_aware() -> void:
 
 func _physics_process(delta: float) -> void:
 	if cur_state == State.caught:
-		im_caught.emit()
+		if !has_caught:
+			has_caught = true
+			im_caught.emit()
 		var diff = pull_center - position
 		var diff_m = diff.length()
 		if diff_m < my_size:

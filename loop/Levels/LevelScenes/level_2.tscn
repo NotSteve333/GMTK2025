@@ -37,10 +37,6 @@ position = Vector2(1111, -522)
 rotation = 2.35616
 scale = Vector2(0.375784, 0.375784)
 
-[node name="Screamer2" parent="Creatures" instance=ExtResource("3_4raqr")]
-position = Vector2(1454, 785)
-rotation = 1.93015
-
 [node name="Obstacles" type="Node" parent="."]
 
 [node name="Obstacle" type="StaticBody2D" parent="Obstacles"]

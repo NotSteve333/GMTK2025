@@ -45,11 +45,6 @@ metadata/_custom_type_script = "uid://fywua8qtnfpp"
 
 [node name="Creatures" type="Node" parent="."]
 
-[node name="Blinker" parent="Creatures" instance=ExtResource("2_xrpjf")]
-position = Vector2(1502, 679)
-rotation = 1.1424
-scale = Vector2(0.249117, 0.249117)
-
 [node name="Screamer" parent="Creatures" instance=ExtResource("3_onsyb")]
 rotation = 0.899963
 
@@ -72,10 +67,6 @@ scale = Vector2(0.249117, 0.249117)
 position = Vector2(970, -501)
 rotation = -1.38576
 scale = Vector2(0.249117, 0.249117)
-
-[node name="Screamer2" parent="Creatures" instance=ExtResource("3_onsyb")]
-position = Vector2(-1420, -627)
-rotation = -0.865377
 
 [node name="Obstacles" type="Node" parent="."]
 

@@ -15,7 +15,7 @@ func _on_vision_body_entered(body: Node2D) -> void:
 		cur_state = State.suspicious
 
 func _process(delta: float) -> void:
-	$Eyes.position = $Eyes.position.move_toward(base_eye_pos + (eye_dir * eye_move_dist), 2.0)
+	$Eyes.position = $Eyes.position.move_toward(base_eye_pos + (eye_dir.rotated(-rotation) * eye_move_dist), 2.0)
 	match cur_state:
 		State.unaware:
 			$AnimationPlayer.current_animation = "idle"

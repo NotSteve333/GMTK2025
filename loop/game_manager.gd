@@ -45,7 +45,7 @@ func start_level(level: int) -> void:
 	add_child(level_manager)
 
 func complete_level(level: int) -> void:
-	levels_done = levels_done && level
+	levels_done = levels_done + level
 	if level_manager:
 		level_manager.queue_free()
 	if landing_scene:
