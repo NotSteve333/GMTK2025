@@ -1,24 +1,60 @@
-[gd_scene format=3 uid="uid://ikp7oprm8nbl"]
+[gd_scene load_steps=9 format=3 uid="uid://ikp7oprm8nbl"]
+
+[ext_resource type="Texture2D" uid="uid://cpqijccaxrcjh" path="res://Sprites/Intros/Space Background.jpg" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://cc3jxfj6bjd3e" path="res://Sprites/MainManu/MainMenu-2.png" id="2_glbon"]
+[ext_resource type="Texture2D" uid="uid://ddq166f43txfg" path="res://Sprites/MainManu/MainMenu-1.png" id="3_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://basp7xgwau4jn" path="res://Sprites/MainManu/MainMenu-3.png" id="4_qe12f"]
+[ext_resource type="Texture2D" uid="uid://ceaisa7s7r00n" path="res://Sprites/MainManu/MainMenu-4.png" id="5_8qtwp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlkkf"]
+radius = 323.966
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qe12f"]
+radius = 426.733
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_glbon"]
+radius = 467.077
 
 [node name="MainMenu" type="Node2D"]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = -1
-anchor_left = 0.201
-anchor_right = 0.785
-anchor_bottom = 1.0
-offset_left = -231.552
-offset_right = 253.68
-offset_bottom = 70.0
-alignment = 1
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.28533, 1.09765)
+texture = ExtResource("1_06t4h")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.3, 0.3)
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Play"
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Quit"
+[node name="Area2D2" type="Area2D" parent="Node2D"]
+position = Vector2(-263, -647)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D2"]
+shape = SubResource("CircleShape2D_nlkkf")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D/Area2D2"]
+position = Vector2(263, 647)
+texture = ExtResource("3_nlkkf")
+
+[node name="Area2D3" type="Area2D" parent="Node2D"]
+position = Vector2(824, 126)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D3"]
+shape = SubResource("CircleShape2D_qe12f")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Area2D3"]
+position = Vector2(-959, -218)
+texture = ExtResource("2_glbon")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("4_qe12f")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+position = Vector2(-657, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+shape = SubResource("CircleShape2D_glbon")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/Area2D"]
+position = Vector2(657, -323)
+texture = ExtResource("5_8qtwp")
