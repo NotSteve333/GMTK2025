@@ -11,3 +11,7 @@ func _ready() -> void:
 			
 func select_stage(level_id: int) -> void:
 	choose_stage.emit(level_id)
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		pass
