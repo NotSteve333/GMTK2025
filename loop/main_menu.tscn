@@ -33,7 +33,7 @@ zoom = Vector2(0.3, 0.3)
 
 [node name="Planet1" type="CharacterBody2D" parent="Planets"]
 script = ExtResource("2_nlkkf")
-planet_id = 1
+planet_id = 4
 metadata/_custom_type_script = "uid://bynhaeqh40r7b"
 
 [node name="Clickable" type="Area2D" parent="Planets/Planet1"]
@@ -49,7 +49,7 @@ texture = ExtResource("3_nlkkf")
 
 [node name="Planet4" type="CharacterBody2D" parent="Planets"]
 script = ExtResource("2_nlkkf")
-planet_id = 4
+planet_id = 2
 metadata/_custom_type_script = "uid://bynhaeqh40r7b"
 
 [node name="Clickable" type="Area2D" parent="Planets/Planet4"]
@@ -69,7 +69,7 @@ texture = ExtResource("4_qe12f")
 
 [node name="Planet2" type="CharacterBody2D" parent="Planets"]
 script = ExtResource("2_nlkkf")
-planet_id = 2
+planet_id = 1
 metadata/_custom_type_script = "uid://bynhaeqh40r7b"
 
 [node name="Clickable" type="Area2D" parent="Planets/Planet2"]
