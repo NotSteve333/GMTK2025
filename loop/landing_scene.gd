@@ -21,4 +21,9 @@ func switc_to_idle() -> void:
 	$AnimationPlayer.current_animation = "idle"
 
 func _on_landing_menu_deploy() -> void:
+	$AnimationPlayer2.current_animation = "drop"
+	$LandingMenu.visible = false
+	
+func done() -> void:
 	start_level.emit(cur_level)
+	
