@@ -3,7 +3,7 @@ class_name LoopHead
 
 @export var base_speed = 300.0
 @export var dash_speed = 200.0
-var is_stopped = false
+@export var is_stopped = false
 var direction = Vector2.ZERO
 var dist: float
 @export var last_node: Vector2

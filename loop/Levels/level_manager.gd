@@ -11,10 +11,15 @@ var result: bool
 
 signal win_level(level_id: int)
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		pause_game(false)
+		$PauseMenu.visible = true
+
 func _ready() -> void:
 	load_level(first_level)
 	
-func end_level(win: bool) -> void:
+func end_level(win: bool, reason: Vector2) -> void:
 	result = win
 	$EndScreenTimer.start()
 	
@@ -44,9 +49,17 @@ func _on_end_screen_timer_timeout() -> void:
 		change_level(cur_level_id)
 
 func pause_game(pause: bool) -> void:
+	$LoopManager/LoopHead.is_stopped = !pause
 	for i in get_children():
 		i.set_process(pause) # Stops _process()
 		i.set_physics_process(pause) # Stops _physics_process()
 		i.set_process_input(pause) # Stops _input()
 		i.set_process_unhandled_input(pause) # Stops _unhandled_input()
 		i.set_process_unhandled_key_input(pause) # Stops _unhandled_key_input()
+
+func _on_pause_menu_back_to_game() -> void:
+	pause_game(true)
+	$PauseMenu.visible = false
+
+func _on_pause_menu_quit() -> void:
+	win_level.emit(0)

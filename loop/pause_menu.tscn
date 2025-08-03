@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ckahmdk2pg34q"]
+[gd_scene load_steps=2 format=3 uid="uid://ckahmdk2pg34q"]
+
+[ext_resource type="Script" uid="uid://c2oaviyeqcjix" path="res://pause_menu.gd" id="1_hdmo1"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hdmo1")
 
 [node name="HFlowContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -21,3 +24,6 @@ text = "Back to Game
 [node name="MainMenu" type="Button" parent="HFlowContainer"]
 layout_mode = 2
 text = "Maine Menu"
+
+[connection signal="pressed" from="HFlowContainer/BackToGame" to="." method="_on_back_to_game_pressed"]
+[connection signal="pressed" from="HFlowContainer/MainMenu" to="." method="_on_main_menu_pressed"]

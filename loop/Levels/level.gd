@@ -21,12 +21,10 @@ func _ready() -> void:
 func update_catches() -> void:
 	catches += 1
 	if catches == num_creatures:
-		print("you win")
-		end_level.emit(true)
+		end_level.emit(true, Vector2.ZERO)
 
 func game_over(location: Vector2) -> void:
-	print("game over")
-	end_level.emit(false)
+	end_level.emit(false, location)
 
 func _on_loop_manager_caught_creature(creature: Creature, center: Vector2) -> void:
 	creature.caught(center)
