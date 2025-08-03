@@ -2,6 +2,8 @@ extends Creature
 
 @onready var vision: ShapeCast2D = $ShapeCast2D
 
+var reverse = 1
+
 func _ready() -> void:
 	$AnimationPlayer.current_animation = "rotate"
 	vision.collide_with_areas = false
@@ -17,7 +19,7 @@ func check_collisions() -> bool:
 func _process(delta: float) -> void:
 	match cur_state:
 		State.unaware:
-			$AnimationPlayer.speed_scale = 1.0
+			$AnimationPlayer.speed_scale = reverse
 			if check_collisions():
 				cur_state = State.suspicious
 				$SusTimer.start()
@@ -28,6 +30,9 @@ func _process(delta: float) -> void:
 		State.caught:
 			$AnimationPlayer.current_animation = "caught"
 			
+
+func reverse_scale() -> void:
+	reverse = -1 * reverse
 
 func _on_sus_timer_timeout() -> void:
 	if check_collisions():

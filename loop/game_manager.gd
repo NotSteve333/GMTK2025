@@ -12,6 +12,7 @@ var levels_done = 0
 var first_level = 1
 
 func _ready() ->void:
+	print("READY:", get_script().resource_path)
 	show_menu(true, levels_done)
 	
 func show_menu(startup: bool, game_state: int) -> void:

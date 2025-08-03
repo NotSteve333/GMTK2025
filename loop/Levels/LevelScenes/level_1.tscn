@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ck60n4li0d22b"]
+[gd_scene load_steps=17 format=3 uid="uid://ck60n4li0d22b"]
 
 [ext_resource type="Script" uid="uid://fywua8qtnfpp" path="res://Levels/level.gd" id="1_xrpjf"]
 [ext_resource type="PackedScene" uid="uid://2qxjlgnkvpv6" path="res://blinker.tscn" id="2_xrpjf"]
 [ext_resource type="PackedScene" uid="uid://cjjw11qxsfxlu" path="res://screamer.tscn" id="3_onsyb"]
 [ext_resource type="Script" uid="uid://enbjrmq3d7aa" path="res://obstacle.gd" id="3_vh0y8"]
 [ext_resource type="Texture2D" uid="uid://d1vw7asa7mmbm" path="res://Sprites/Backgrounds/Forest.png" id="3_xrpjf"]
+[ext_resource type="PackedScene" uid="uid://c0p2odpb2t84s" path="res://worm_creature.tscn" id="4_6uy5v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onsyb"]
 radius = 186.325
@@ -67,6 +68,10 @@ scale = Vector2(0.249117, 0.249117)
 position = Vector2(970, -501)
 rotation = -1.38576
 scale = Vector2(0.249117, 0.249117)
+
+[node name="WormCreature" parent="Creatures" instance=ExtResource("4_6uy5v")]
+position = Vector2(722, 183)
+rotation = 1.99704
 
 [node name="Obstacles" type="Node" parent="."]
 

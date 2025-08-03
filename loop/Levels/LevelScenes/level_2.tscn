@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://vux3fjuf6wy0"]
+[gd_scene load_steps=7 format=3 uid="uid://vux3fjuf6wy0"]
 
 [ext_resource type="Script" uid="uid://fywua8qtnfpp" path="res://Levels/level.gd" id="1_822or"]
 [ext_resource type="Texture2D" uid="uid://ckfaui4ua6p4i" path="res://Sprites/Backgrounds/Desert2.png" id="2_ga2gt"]
 [ext_resource type="PackedScene" uid="uid://cjjw11qxsfxlu" path="res://screamer.tscn" id="3_4raqr"]
 [ext_resource type="PackedScene" uid="uid://2qxjlgnkvpv6" path="res://blinker.tscn" id="4_3jp4g"]
 [ext_resource type="Script" uid="uid://enbjrmq3d7aa" path="res://obstacle.gd" id="4_wyqnd"]
+[ext_resource type="PackedScene" uid="uid://c0p2odpb2t84s" path="res://worm_creature.tscn" id="5_e86it"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_822or")
@@ -36,6 +37,10 @@ scale = Vector2(0.375784, 0.375784)
 position = Vector2(1111, -522)
 rotation = 2.35616
 scale = Vector2(0.375784, 0.375784)
+
+[node name="WormCreature" parent="Creatures" instance=ExtResource("5_e86it")]
+position = Vector2(773, 444)
+rotation = -2.72756
 
 [node name="Obstacles" type="Node" parent="."]
 

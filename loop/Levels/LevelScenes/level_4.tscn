@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://byrpphv2ghj45"]
+[gd_scene load_steps=7 format=3 uid="uid://byrpphv2ghj45"]
 
 [ext_resource type="Script" uid="uid://fywua8qtnfpp" path="res://Levels/level.gd" id="1_rkx17"]
 [ext_resource type="PackedScene" uid="uid://cjjw11qxsfxlu" path="res://screamer.tscn" id="2_a1vik"]
 [ext_resource type="Texture2D" uid="uid://dq5gklkc7034a" path="res://Sprites/Backgrounds/Decay.png" id="2_clev3"]
 [ext_resource type="Script" uid="uid://enbjrmq3d7aa" path="res://obstacle.gd" id="2_hdxdx"]
 [ext_resource type="PackedScene" uid="uid://2qxjlgnkvpv6" path="res://blinker.tscn" id="3_h3eu8"]
+[ext_resource type="PackedScene" uid="uid://c0p2odpb2t84s" path="res://worm_creature.tscn" id="4_h3eu8"]
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_rkx17")
@@ -25,10 +26,9 @@ scale = Vector2(0.281107, 0.281107)
 position = Vector2(817, 706)
 rotation = -1.55278
 
-[node name="Blinker2" parent="Creatures" instance=ExtResource("3_h3eu8")]
-position = Vector2(1384, -570)
-rotation = 0.999235
-scale = Vector2(0.451005, 0.451005)
+[node name="WormCreature" parent="Creatures" instance=ExtResource("4_h3eu8")]
+position = Vector2(1306, -766)
+rotation = 1.08962
 
 [node name="Obstacles" type="Node" parent="."]
 

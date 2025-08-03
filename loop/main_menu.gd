@@ -8,6 +8,7 @@ signal quit()
 signal choose_stage(level_id: int)
 
 func _ready() -> void:
+	print("READY:", get_script().resource_path)
 	$MainMenuUI.visible = startup
 	var planets = $Planets
 	for i in planets.get_children():
