@@ -2,16 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://cpqijccaxrcjh" path="res://Sprites/Intros/Space Background.jpg" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://dndxt16p7yd6t" path="res://main_menu.gd" id="1_qe12f"]
-[ext_resource type="Texture2D" uid="uid://cc3jxfj6bjd3e" path="res://Sprites/MainManu/MainMenu-2.png" id="2_glbon"]
 [ext_resource type="Script" uid="uid://bynhaeqh40r7b" path="res://planet.gd" id="2_nlkkf"]
-[ext_resource type="Texture2D" uid="uid://ddq166f43txfg" path="res://Sprites/MainManu/MainMenu-1.png" id="3_nlkkf"]
-[ext_resource type="Texture2D" uid="uid://la4xjjoeenmn" path="res://Sprites/MainManu/figuring-out_0009_Layer-13-copy.png" id="4_j5v2v"]
-[ext_resource type="Texture2D" uid="uid://basp7xgwau4jn" path="res://Sprites/MainManu/MainMenu-3.png" id="4_qe12f"]
-[ext_resource type="Texture2D" uid="uid://ceaisa7s7r00n" path="res://Sprites/MainManu/MainMenu-4.png" id="5_8qtwp"]
+[ext_resource type="Texture2D" uid="uid://la4xjjoeenmn" path="res://Sprites/MainMenu/figuring-out_0009_Layer-13-copy.png" id="5_j5v2v"]
+[ext_resource type="Texture2D" uid="uid://ddq166f43txfg" path="res://Sprites/MainMenu/MainMenu-1.png" id="6_iotk1"]
 [ext_resource type="Script" uid="uid://binbelp38jfnf" path="res://clickable.gd" id="7_dy7ct"]
-[ext_resource type="Texture2D" uid="uid://dhtb806cmc2hi" path="res://Sprites/MainManu/figuring-out_0007_Layer-16-copy.png" id="7_iotk1"]
+[ext_resource type="Texture2D" uid="uid://dhtb806cmc2hi" path="res://Sprites/MainMenu/figuring-out_0007_Layer-16-copy.png" id="7_w44g7"]
 [ext_resource type="PackedScene" uid="uid://kenm0g26kyxa" path="res://main_menu_ui.tscn" id="8_8qtwp"]
-[ext_resource type="Texture2D" uid="uid://mprnifwpj3ku" path="res://Sprites/MainManu/figuring-out_0002_Layer-12-copy.png" id="10_w44g7"]
+[ext_resource type="Texture2D" uid="uid://cc3jxfj6bjd3e" path="res://Sprites/MainMenu/MainMenu-2.png" id="8_cm266"]
+[ext_resource type="Texture2D" uid="uid://basp7xgwau4jn" path="res://Sprites/MainMenu/MainMenu-3.png" id="9_g8g3n"]
+[ext_resource type="Texture2D" uid="uid://mprnifwpj3ku" path="res://Sprites/MainMenu/figuring-out_0002_Layer-12-copy.png" id="10_8u0te"]
+[ext_resource type="Texture2D" uid="uid://ceaisa7s7r00n" path="res://Sprites/MainMenu/MainMenu-4.png" id="11_oiatc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nlkkf"]
 radius = 323.966
@@ -26,6 +26,7 @@ radius = 467.077
 script = ExtResource("1_qe12f")
 
 [node name="Stars" type="Sprite2D" parent="."]
+z_index = -1
 scale = Vector2(1.28533, 1.09765)
 texture = ExtResource("1_06t4h")
 
@@ -35,26 +36,26 @@ zoom = Vector2(0.3, 0.3)
 [node name="Planets" type="Node2D" parent="."]
 
 [node name="Planet1" type="CharacterBody2D" parent="Planets"]
+position = Vector2(207, 914)
 script = ExtResource("2_nlkkf")
 planet_id = 4
 metadata/_custom_type_script = "uid://bynhaeqh40r7b"
 
 [node name="Clickable" type="Area2D" parent="Planets/Planet1"]
-position = Vector2(-263, -647)
+position = Vector2(-718, -1437)
 script = ExtResource("7_dy7ct")
-planet_id = 1
+planet_id = 4
 
 [node name="Shine" type="Sprite2D" parent="Planets/Planet1/Clickable"]
-visible = false
 position = Vector2(-40, -1)
-texture = ExtResource("4_j5v2v")
+texture = ExtResource("5_j5v2v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Planet1/Clickable"]
 shape = SubResource("CircleShape2D_nlkkf")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Planets/Planet1/Clickable"]
 position = Vector2(-4, -13)
-texture = ExtResource("3_nlkkf")
+texture = ExtResource("6_iotk1")
 
 [node name="Planet4" type="CharacterBody2D" parent="Planets"]
 script = ExtResource("2_nlkkf")
@@ -64,22 +65,21 @@ metadata/_custom_type_script = "uid://bynhaeqh40r7b"
 [node name="Clickable" type="Area2D" parent="Planets/Planet4"]
 position = Vector2(824, 126)
 script = ExtResource("7_dy7ct")
-planet_id = 4
+planet_id = 2
 
 [node name="Shine" type="Sprite2D" parent="Planets/Planet4/Clickable"]
-visible = false
 position = Vector2(-5, -21)
-texture = ExtResource("7_iotk1")
+texture = ExtResource("7_w44g7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Planet4/Clickable"]
 shape = SubResource("CircleShape2D_qe12f")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Planets/Planet4/Clickable"]
 position = Vector2(2, -1)
-texture = ExtResource("2_glbon")
+texture = ExtResource("8_cm266")
 
 [node name="Sun" type="Sprite2D" parent="Planets"]
-texture = ExtResource("4_qe12f")
+texture = ExtResource("9_g8g3n")
 
 [node name="Planet2" type="CharacterBody2D" parent="Planets"]
 script = ExtResource("2_nlkkf")
@@ -89,19 +89,18 @@ metadata/_custom_type_script = "uid://bynhaeqh40r7b"
 [node name="Clickable" type="Area2D" parent="Planets/Planet2"]
 position = Vector2(-657, 323)
 script = ExtResource("7_dy7ct")
-planet_id = 2
+planet_id = 1
 
 [node name="Shine" type="Sprite2D" parent="Planets/Planet2/Clickable"]
-visible = false
 position = Vector2(25, -6)
-texture = ExtResource("10_w44g7")
+texture = ExtResource("10_8u0te")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Planet2/Clickable"]
 shape = SubResource("CircleShape2D_glbon")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Planets/Planet2/Clickable"]
 position = Vector2(1, 11)
-texture = ExtResource("5_8qtwp")
+texture = ExtResource("11_oiatc")
 
 [node name="MainMenuUI" parent="." instance=ExtResource("8_8qtwp")]
 offset_left = -1717.0
