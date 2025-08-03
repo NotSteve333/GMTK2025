@@ -22,6 +22,7 @@ func _ready() -> void:
 func end_level(win: bool, reason: Vector2) -> void:
 	result = win
 	if reason.length() > 0.0:
+		$LoopManager/LoopHead.is_stopped = true
 		$CameraController.set_kill(reason)
 	$EndScreenTimer.start()
 	

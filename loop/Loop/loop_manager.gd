@@ -105,5 +105,5 @@ func _on_loop_close_body_entered(body: Node2D) -> void:
 		body.caught(active_inter.center)
 	if body is Obstacle:
 		is_snapped = true
-		loop_broke.emit(false)
+		loop_broke.emit(false, Vector2.ZERO)
 		active_inter.center = body.position
