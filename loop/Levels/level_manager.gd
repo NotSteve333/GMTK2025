@@ -2,15 +2,14 @@ extends Node2D
 
 @onready var loop_packed: PackedScene = preload("res://Loop/loop_manager.tscn")
 
-@export var first_level = 1
+@export var first_level: int
 
 var loop
 var cur_level_id: int
 var cur_level: Level
 var result: bool
 
-signal win_level()
-signal lose_level()
+signal win_level(level_id: int)
 
 func _ready() -> void:
 	load_level(first_level)
@@ -40,8 +39,6 @@ func load_level(level_id: int) -> void:
 
 func _on_end_screen_timer_timeout() -> void:
 	if result:
-		win_level.emit()
-		change_level(cur_level_id + 1)
+		win_level.emit(cur_level_id)
 	else:
-		lose_level.emit()
 		change_level(cur_level_id)

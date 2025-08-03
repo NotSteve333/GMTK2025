@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://dt2724m6xdpyb"]
+[gd_scene load_steps=2 format=3 uid="uid://dt2724m6xdpyb"]
+
+[ext_resource type="Texture2D" uid="uid://gl1hb5i8cmit" path="res://Sprites/Intros/Desert1.png" id="1_k0xr1"]
 
 [node name="LandingScene" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k0xr1")
