@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt2724m6xdpyb"]
+[gd_scene load_steps=13 format=3 uid="uid://dt2724m6xdpyb"]
 
 [ext_resource type="Script" uid="uid://5m82wxr0l5w0" path="res://landing_scene.gd" id="1_4q2mw"]
 [ext_resource type="Texture2D" uid="uid://cpqijccaxrcjh" path="res://Sprites/Intros/Space Background.jpg" id="2_4q2mw"]
 [ext_resource type="Texture2D" uid="uid://41ii0fykcs5b" path="res://Sprites/Intros/Landing1.png" id="2_ilc0q"]
+[ext_resource type="Texture2D" uid="uid://dhexol004xinf" path="res://Sprites/Ship/ship-2.png" id="3_xfb24"]
+[ext_resource type="Texture2D" uid="uid://cbb46qiwff4l3" path="res://Sprites/Ship/ship-3.png" id="4_3c0hr"]
 [ext_resource type="PackedScene" uid="uid://brw1e6ctglhxy" path="res://landing_menu.tscn" id="4_aoehx"]
+[ext_resource type="Script" uid="uid://kgku48kcoeb5" path="res://ship.gd" id="5_7a5io"]
+[ext_resource type="Texture2D" uid="uid://cplqgrh42g3tn" path="res://Sprites/Ship/ship-1.png" id="5_rnlf1"]
+[ext_resource type="Texture2D" uid="uid://dn80c2b5dgt0c" path="res://Sprites/Ship/ship-4.png" id="5_yh7a8"]
 
 [sub_resource type="Animation" id="Animation_aoehx"]
 length = 0.001
@@ -17,6 +22,40 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ship:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-424, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ship:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1809, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ship:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_rnlf1")]
 }
 
 [sub_resource type="Animation" id="Animation_ilc0q"]
@@ -46,6 +85,40 @@ tracks/1/keys = {
 "args": [],
 "method": &"bring_up_menu"
 }]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ship:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-424, -0.25, 0, 0.25, 0, -384, -0.25, 0, 0.25, 0, -323, -0.25, 0, 0.25, 0, -397, -0.25, 0, 0.25, 0, -323, -0.25, 0, 0.25, 0, -207, -0.25, 0, 0.25, 0, -299, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.29, 1.74, 2.21, 2.6, 3.65, 4.89)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ship:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-1809, -0.25, 0, 0.25, 0, -961, -0.25, 0, 0.25, 0, -961, -0.25, 0, 0.25, 0, -974, -0.25, 0, 0.25, 0, -961, -0.25, 0, 0.25, 0, -245, -0.25, 0, 0.25, 0, -287, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.29, 1.74, 2.21, 2.6, 3.65, 4.89)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ship:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.18, 0.36, 0.51, 0.68, 0.83, 1, 1.2, 1.33, 1.5, 1.65, 1.8, 1.96, 2.09, 2.2, 2.31, 2.45, 2.56, 2.66, 2.78, 2.92, 3.03, 3.18, 3.35, 3.5, 3.64, 3.79, 3.91, 4.01, 4.14, 4.32, 4.47, 4.63, 4.77, 4.87, 4.96),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8"), ExtResource("5_rnlf1"), ExtResource("3_xfb24"), ExtResource("4_3c0hr"), ExtResource("5_yh7a8")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aoehx"]
@@ -78,6 +151,7 @@ texture = ExtResource("2_4q2mw")
 
 [node name="LandingMenu" parent="." instance=ExtResource("4_aoehx")]
 visible = false
+z_index = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_right = 0.0
@@ -88,6 +162,11 @@ offset_right = -1742.0
 offset_bottom = 334.0
 grow_horizontal = 1
 scale = Vector2(3, 3)
+
+[node name="Ship" type="Sprite2D" parent="."]
+position = Vector2(-424, -1809)
+texture = ExtResource("5_rnlf1")
+script = ExtResource("5_7a5io")
 
 [connection signal="back" from="LandingMenu" to="." method="_on_landing_menu_back"]
 [connection signal="deploy" from="LandingMenu" to="." method="_on_landing_menu_deploy"]
