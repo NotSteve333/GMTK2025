@@ -72,7 +72,7 @@ func _on_pause_menu_back_to_game() -> void:
 	%PauseMenu.visible = false
 
 func _on_pause_menu_quit() -> void:
-	win_level.emit(0)
+	win_level.emit(3)
 
 func _on_pause_menu_restart() -> void:
 	change_level(cur_level_id)

@@ -13,8 +13,9 @@ func _ready() -> void:
 	var j = 0
 	for i in planets.get_children():
 		if i is Planet:
+			print(completion_state)
 			i.get_child(1).click_me.connect(select_stage)
-			i.get_child(0).visible = completion_state[j]
+			i.get_child(0).visible = !completion_state[j]
 		j += 1
 				
 
