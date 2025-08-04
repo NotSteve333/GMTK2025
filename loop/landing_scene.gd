@@ -1,0 +1,29 @@
+extends Node2D
+
+@export var cur_level: int
+
+signal back(exit_val: int)
+signal start_level(this_level: int)
+
+var coming_in: bool = true
+
+func _ready() -> void:
+	$BG.get_child(cur_level -1).visible = true
+	$AnimationPlayer.current_animation = "coming_in"
+
+func bring_up_menu() -> void:
+	$LandingMenu.visible = true
+
+func _on_landing_menu_back() -> void:
+	back.emit(0)
+
+func switc_to_idle() -> void:
+	$AnimationPlayer.current_animation = "idle"
+
+func _on_landing_menu_deploy() -> void:
+	$AnimationPlayer2.current_animation = "drop"
+	$LandingMenu.visible = false
+	
+func done() -> void:
+	start_level.emit(cur_level)
+	

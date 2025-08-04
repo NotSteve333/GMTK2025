@@ -1,0 +1,113 @@
+[gd_scene load_steps=12 format=3 uid="uid://2qxjlgnkvpv6"]
+
+[ext_resource type="Script" uid="uid://dprrlo4fcedc" path="res://blinker.gd" id="1_25vyr"]
+[ext_resource type="Texture2D" uid="uid://71lnbmg8iw6q" path="res://Sprites/Blinker/Blinkereyes.png" id="2_25vyr"]
+[ext_resource type="Texture2D" uid="uid://dy50my58jfsck" path="res://Sprites/Blinker/Blinke4.png" id="3_25vyr"]
+[ext_resource type="Texture2D" uid="uid://bkcvrxfki1un3" path="res://Sprites/Blinker/Blinker3.png" id="4_ql6ki"]
+[ext_resource type="Texture2D" uid="uid://brgrb3l5xgh8w" path="res://Sprites/Blinker/Blinke2.png" id="5_flv2g"]
+[ext_resource type="Texture2D" uid="uid://csfobbdt2tmsp" path="res://Sprites/Blinker/Blinker.png" id="6_asuhj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25vyr"]
+radius = 261.651
+height = 752.106
+
+[sub_resource type="Animation" id="Animation_dhxtf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_25vyr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vision/VisionCircle:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1300.0]
+}
+
+[sub_resource type="Animation" id="Animation_80uei"]
+resource_name = "idle"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.7, 1.75, 1.8, 1.9, 2, 2.4, 2.6, 2.75, 2.8, 2.96667, 3.16667, 3.36667, 5.5, 5.8, 5.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_25vyr"), ExtResource("4_ql6ki"), ExtResource("5_flv2g"), ExtResource("6_asuhj"), ExtResource("5_flv2g"), ExtResource("4_ql6ki"), ExtResource("3_25vyr"), ExtResource("4_ql6ki"), ExtResource("5_flv2g"), ExtResource("6_asuhj"), ExtResource("5_flv2g"), ExtResource("4_ql6ki"), ExtResource("5_flv2g"), ExtResource("6_asuhj"), ExtResource("5_flv2g"), ExtResource("4_ql6ki"), ExtResource("3_25vyr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vision/VisionCircle:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.52, 1.7, 1.77, 1.81, 1.91, 2.03, 2.41, 2.61, 2.75, 2.82, 2.97, 3.19, 3.37, 5.5, 5.82, 5.98),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1300.0, 1000.0, 800.0, 100.0, 800.0, 1000.0, 1300.0, 1000.0, 800.0, 100.0, 800.0, 1000.0, 800.0, 100.0, 800.0, 1000.0, 1300.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gl7vf"]
+_data = {
+&"RESET": SubResource("Animation_dhxtf"),
+&"idle": SubResource("Animation_80uei")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2vwn"]
+radius = 1300.0
+
+[node name="Blinker" type="CharacterBody2D"]
+script = ExtResource("1_25vyr")
+my_size = 100.0
+metadata/_custom_type_script = "uid://ble2beenyh6vl"
+
+[node name="Eyes" type="Sprite2D" parent="."]
+position = Vector2(-10, -79)
+texture = ExtResource("2_25vyr")
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(-10, -79)
+texture = ExtResource("3_25vyr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5)
+rotation = 1.11683
+shape = SubResource("CapsuleShape2D_25vyr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gl7vf")
+}
+
+[node name="Vision" type="Area2D" parent="."]
+position = Vector2(-10, -79)
+
+[node name="VisionCircle" type="CollisionShape2D" parent="Vision"]
+position = Vector2(10, 75)
+shape = SubResource("CircleShape2D_g2vwn")
+
+[node name="VisionTimer" type="Timer" parent="Vision"]
+wait_time = 1.75
+
+[connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
+[connection signal="timeout" from="Vision/VisionTimer" to="." method="_on_vision_timer_timeout"]

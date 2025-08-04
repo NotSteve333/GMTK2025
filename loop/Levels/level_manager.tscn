@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdavh70tdor58"]
+
+[ext_resource type="Script" uid="uid://4rxx0m6fm5p2" path="res://Levels/level_manager.gd" id="1_3maf5"]
+[ext_resource type="PackedScene" uid="uid://ckahmdk2pg34q" path="res://pause_menu.tscn" id="3_h50aq"]
+[ext_resource type="PackedScene" uid="uid://b8mp702n00f00" path="res://camera_controller.tscn" id="3_iait3"]
+
+[node name="LevelManager" type="Node2D"]
+script = ExtResource("1_3maf5")
+
+[node name="CameraController" parent="." instance=ExtResource("3_iait3")]
+
+[node name="EndScreenTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_h50aq")]
+unique_name_in_owner = true
+z_index = 1
+offset_left = 1.0
+offset_top = 114.0
+offset_right = 1.0
+offset_bottom = 114.0
+
+[connection signal="timeout" from="EndScreenTimer" to="." method="_on_end_screen_timer_timeout"]
+[connection signal="back_to_game" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_back_to_game"]
+[connection signal="quit" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_quit"]
+[connection signal="restart" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_restart"]

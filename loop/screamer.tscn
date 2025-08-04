@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://cjjw11qxsfxlu"]
+
+[ext_resource type="Script" uid="uid://bttwhk76vm1i0" path="res://screamer.gd" id="1_is1fi"]
+[ext_resource type="Texture2D" uid="uid://dlwngygvt5oyd" path="res://Sprites/Screamer/screamer-1.png" id="2_2p01n"]
+[ext_resource type="Texture2D" uid="uid://cp7knwgxhdmpi" path="res://Sprites/Screamer/screamer-9.png" id="3_is1fi"]
+[ext_resource type="Texture2D" uid="uid://drisrxph3acn0" path="res://Sprites/Screamer/screamer-3.png" id="4_0nvu2"]
+[ext_resource type="Texture2D" uid="uid://bb2ek5ymb5opd" path="res://Sprites/Screamer/screamer-4.png" id="5_wgxun"]
+[ext_resource type="Texture2D" uid="uid://c0ia1yepm752m" path="res://Sprites/Screamer/screamer-5.png" id="6_c6dcq"]
+[ext_resource type="Texture2D" uid="uid://2xes61gqvm3d" path="res://Sprites/Screamer/screamer-7.png" id="7_c4456"]
+[ext_resource type="Texture2D" uid="uid://duy60n5evwxac" path="res://Sprites/Screamer/screamer-8.png" id="8_hcjul"]
+
+[sub_resource type="Animation" id="Animation_iqqps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2p01n")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scream:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scream:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_56rxa"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_xy3r0"]
+resource_name = "scream"
+length = 2.5
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.625, 0.6875, 0.75, 0.8125, 0.9375, 1, 1.125, 1.1875, 1.25, 1.33, 1.4, 1.45, 1.56, 1.65, 1.69, 1.75, 1.82, 1.91, 2, 2.07, 2.14, 2.24, 2.33, 2.41),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_2p01n"), ExtResource("4_0nvu2"), ExtResource("5_wgxun"), ExtResource("6_c6dcq"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("7_c4456"), ExtResource("8_hcjul"), ExtResource("3_is1fi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scream:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scream:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgtea"]
+_data = {
+&"RESET": SubResource("Animation_iqqps"),
+&"idle": SubResource("Animation_56rxa"),
+&"scream": SubResource("Animation_xy3r0")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_is1fi"]
+radius = 2203.0
+
+[node name="Screamer" type="CharacterBody2D"]
+script = ExtResource("1_is1fi")
+my_size = 200.0
+metadata/_custom_type_script = "uid://ble2beenyh6vl"
+
+[node name="AnimationTree" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cgtea")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.547789, 0.547789)
+texture = ExtResource("2_2p01n")
+
+[node name="Scream" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scream"]
+position = Vector2(73, -55)
+shape = SubResource("CircleShape2D_is1fi")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1, -168, -89, -165, -161, -110, -209, -68, -223, -24, -194, 8, -137, 62, -100, 75, -137, 20, -170, -33, -113, -60, -68, -60, 23, -80, 87, -88, 139, -39, 156, 1, 128, 84, 181, 52, 219, -8, 211, -66, 133, -154, 59, -184)
